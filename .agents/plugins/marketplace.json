@@ -1,0 +1,20 @@
+{
+  "name": "mavpa",
+  "interface": {
+    "displayName": "mavpa"
+  },
+  "plugins": [
+    {
+      "name": "mavpa",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

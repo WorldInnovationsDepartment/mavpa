@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# mavpa launcher: runs the toolbox from a private virtualenv and creates it on first use.
+#
+#   MAVPA_VENV   where the environment lives (default ~/.mavpa/venv)
+#   MAVPA_HOME   where workspaces go         (default ~/mavpa)
+#
+# Inside the plugin/repo it installs the package it ships with. When this skill was copied
+# on its own (e.g. `npx skills add`), it installs mavpa from GitHub instead.
+set -euo pipefail
+SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SELF/../../.." 2>/dev/null && pwd || true)"
+if [ -n "$ROOT" ] && [ -f "$ROOT/pyproject.toml" ] && grep -q '^name = "mavpa"' "$ROOT/pyproject.toml"; then
+  SRC="$ROOT"
+  WANT="$(shasum "$ROOT/pyproject.toml" | cut -c1-12) $ROOT $(find "$ROOT/mavpa" -name '*.py' -o -name '*.html' | sort | xargs cat | shasum | cut -c1-12)"
+else
+  SRC="git+https://github.com/WorldInnovationsDepartment/mavpa"
+  WANT="$SRC"
+fi
+VENV="${MAVPA_VENV:-$HOME/.mavpa/venv}"
+STAMP="$VENV/.mavpa-install"
+
+if [ ! -x "$VENV/bin/python" ] || [ "$(cat "$STAMP" 2>/dev/null || true)" != "$WANT" ]; then
+  echo "mavpa: preparing its Python environment in $VENV" >&2
+  echo "mavpa: (first time only: downloads ~1 GB: PyTorch, Demucs, librosa, basic-pitch)" >&2
+  mkdir -p "$(dirname "$VENV")"
+  if command -v uv >/dev/null 2>&1; then
+    [ -x "$VENV/bin/python" ] || uv venv --quiet --python 3.12 "$VENV" >&2 || uv venv --quiet "$VENV" >&2
+    uv pip install --quiet --python "$VENV/bin/python" --reinstall-package mavpa "$SRC" >&2
+    uv pip install --quiet --python "$VENV/bin/python" --no-deps "basic-pitch==0.4.0" >&2
+  else
+    PY="$(command -v python3.12 || command -v python3.11 || command -v python3.10 || command -v python3)"
+    [ -x "$VENV/bin/python" ] || "$PY" -m venv "$VENV"
+    "$VENV/bin/python" -m pip install --quiet --upgrade pip >&2
+    "$VENV/bin/python" -m pip install --quiet --force-reinstall --no-deps "$SRC" >&2
+    "$VENV/bin/python" -m pip install --quiet "$SRC" >&2
+    "$VENV/bin/python" -m pip install --quiet --no-deps "basic-pitch==0.4.0" >&2
+  fi
+  echo "$WANT" > "$STAMP"
+fi
+# -I: never import code from the current directory (the audio's folder is untrusted)
+exec "$VENV/bin/python" -I -m mavpa "$@"

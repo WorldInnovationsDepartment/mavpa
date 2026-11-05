@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__PAGE_TITLE__</title>
+<style>
+:root {
+  --bg: #f6f4ef; --panel: #ffffff; --panel2: #faf8f3; --ink: #1c1b1a; --muted: #66625b; --line: #e3ddd2; --accent: #b4410f;
+  --roll-w: #fcfbf8; --roll-b: #eeeae2; --g-bar: #7d786e; --g-beat: #c4bdb1; --g-step: #e9e4db; --key-ink: #8a857b;
+  --bass: #dc4a26; --pad: #2f6fe0; --pad2: #5b5bd6; --flick: #e39a06; --tick: #0b8a7f; --top: #9b45e4; --spark: #db2777; --vocal: #15913f; --drums: #4b5563;
+  --on-note: #ffffff; --chip: #ffffff; --mark: #ef4444;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121214; --panel: #1a1a1e; --panel2: #1f1f25; --ink: #ececf0; --muted: #a2a2ad; --line: #2d2d36; --accent: #fb923c;
+    --roll-w: #1f1f25; --roll-b: #18181d; --g-bar: #8c8c98; --g-beat: #474752; --g-step: #2a2a32; --key-ink: #8b8b97;
+    --bass: #f2704f; --pad: #5b9cf6; --pad2: #8b8cf3; --flick: #f7b733; --tick: #2cc7b6; --top: #c08af8; --spark: #f06aa8; --vocal: #46c46e; --drums: #9aa5b5;
+    --on-note: #101014; --chip: #1f1f25; --mark: #f87171;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121214; --panel: #1a1a1e; --panel2: #1f1f25; --ink: #ececf0; --muted: #a2a2ad; --line: #2d2d36; --accent: #fb923c;
+  --roll-w: #1f1f25; --roll-b: #18181d; --g-bar: #8c8c98; --g-beat: #474752; --g-step: #2a2a32; --key-ink: #8b8b97;
+  --bass: #f2704f; --pad: #5b9cf6; --pad2: #8b8cf3; --flick: #f7b733; --tick: #2cc7b6; --top: #c08af8; --spark: #f06aa8; --vocal: #46c46e; --drums: #9aa5b5;
+  --on-note: #101014; --chip: #1f1f25; --mark: #f87171;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main, .top { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+main { padding-bottom: 96px; }
+.top { padding-top: 28px; padding-bottom: 8px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--muted); margin: 0; }
+h1 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); line-height: 1.15; letter-spacing: -0.02em; margin: .25em 0 .3em; }
+h2 { font-size: 1.4rem; letter-spacing: -0.01em; margin: 2.4em 0 .5em; padding-top: .4em; border-top: 1px solid var(--line); }
+h3 { font-size: 1.12rem; margin: 0; }
+h4 { font-size: .95rem; margin: 0 0 .3em; }
+p { margin: .5em 0; }
+.lede { font-size: 1.08rem; color: var(--muted); max-width: 46em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.chips span { padding: 3px 11px; border: 1px solid var(--line); border-radius: 999px; font-size: .86rem; background: var(--chip); }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 14px 0 0; font-size: .86rem; color: var(--muted); }
+.controls > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; max-width: 100%; }
+.toggle { display: inline-flex; flex-wrap: wrap; max-width: 100%; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--chip); vertical-align: middle; }
+.toggle button { border: 0; background: transparent; color: var(--ink); padding: 5px 11px; font: inherit; font-size: .84rem; cursor: pointer; }
+.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.three { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.three .card { margin: 0; }
+@media (max-width: 760px) { .two { grid-template-columns: 1fr; } .card { padding: 16px 14px; } }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+details { border: 1px dashed var(--line); border-radius: 10px; padding: 8px 12px; margin: 12px 0; background: var(--panel2); }
+details[open] { border-style: solid; }
+summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex: none; transform: translateY(1px); }
+.layer-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+.where { color: var(--muted); font-size: .9rem; }
+ol { padding-left: 1.35em; margin: .4em 0; }
+li { margin: .28em 0; }
+.recipe { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px; }
+.recipe ol { font-size: .93rem; }
+.recipe.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.nn { font-weight: 650; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.mono, code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+.callout { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; margin: 12px 0; color: var(--ink); }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; color: var(--muted); margin: 8px 0 0; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.drumgrid { border-collapse: separate; border-spacing: 3px; width: auto; font-size: .78rem; }
+.drumgrid td, .drumgrid th { padding: 0; border: 0; text-align: center; }
+.drumgrid th { width: 24px; height: 18px; color: var(--muted); font-weight: 600; text-transform: none; letter-spacing: 0; }
+.drumgrid th.rowh { width: auto; padding-right: 8px; text-align: right; white-space: nowrap; }
+.drumgrid td { width: 24px; height: 22px; border-radius: 5px; background: var(--roll-b); }
+.drumgrid td.beat { box-shadow: inset 0 0 0 1px var(--g-beat); }
+.drumgrid td.X { background: var(--drums); }
+.drumgrid td.x { background: color-mix(in srgb, var(--drums) 62%, transparent); }
+.drumgrid td.g { background: color-mix(in srgb, var(--drums) 28%, transparent); }
+.drums-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 14px; }
+svg { display: block; }
+footer { color: var(--muted); font-size: .85rem; margin-top: 3em; }
+footer a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="top">
+  <p class="eyebrow" id="eyebrow"></p>
+  <h1 id="title"></h1>
+  <p class="lede" id="lede"></p>
+  <div class="chips" id="chips"></div>
+  <div class="controls">
+    <span>Note names (middle C =)
+      <span class="toggle" id="naming">
+        <button data-v="sci" aria-pressed="true">C4 · scientific</button><button data-v="fl" aria-pressed="false">C5 · FL</button><button data-v="abl" aria-pressed="false">C3 · Ableton / GarageBand</button>
+      </span>
+    </span>
+    <span>Theme <span class="toggle" id="theme"><button data-v="auto" aria-pressed="true">Auto</button><button data-v="light" aria-pressed="false">Light</button><button data-v="dark" aria-pressed="false">Dark</button></span></span>
+  </div>
+</div>
+<main id="main"></main>
+
+<script>
+const DATA = /*__DATA__*/null;
+const PC = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+const OFF = { sci: 0, fl: 1, abl: -1 };
+const SPB = DATA.grid.spb;
+let naming = 'sci';
+function nn(m) { return PC[((m % 12) + 12) % 12] + (Math.floor(m / 12) - 1 + OFF[naming]); }
+const STEPNAME = Array.from({ length: SPB }, (_, i) => `${Math.floor(i / 4) + 1}${['', 'e', '&', 'a'][i % 4]}`);
+const NOTE_FG = { flick: '#1c1b1a', tick: '#ffffff' };
+
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function noteNum(t) {
+  if (/^\d+$/.test(t)) return +t;
+  const m = /^([A-Ga-g])([#b♯♭]*)(-?\d+)$/.exec(t);
+  if (!m) return null;
+  let p = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 }[m[1].toUpperCase()];
+  for (const ch of m[2]) p += (ch === '#' || ch === '♯') ? 1 : -1;
+  return 12 * (+m[3] + 1) + p;
+}
+function span(ms) { ms = [].concat(ms); return `<span class="nn" data-m="${ms.join(',')}">${ms.map(nn).join(' ')}</span>`; }
+function md(s) {
+  if (s === null || s === undefined) return '';
+  let h = esc(s);
+  h = h.replace(/`([^`]+)`/g, (_, x) => `<span class="mono">${x}</span>`);
+  h = h.replace(/\{\{([^}]+)\}\}/g, (_, x) => {
+    const parts = x.trim().split(/\s+/), ms = parts.map(noteNum);
+    return ms.some(v => v === null) ? x : span(ms);
+  });
+  return h.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/\*([^*\n]+)\*/g, '<i>$1</i>');
+}
+function ol(items) { return items && items.length ? `<ol>${items.map(i => `<li>${md(i)}</li>`).join('')}</ol>` : ''; }
+function table(t) {
+  return `<div class="scroll"><table><thead><tr>${t.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>` +
+    t.rows.map(r => `<tr>${r.map(c => `<td>${md(c)}</td>`).join('')}</tr>`).join('') + '</tbody></table></div>';
+}
+
+function roll(opt) {
+  const cell = opt.cell || 10, row = opt.row || 12, keyW = 46, head = 18;
+  const steps = opt.bars * SPB, W = keyW + steps * cell + 1, H = head + (opt.hi - opt.lo + 1) * row + 1;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(opt.title || 'piano roll')}">`;
+  for (let p = opt.hi; p >= opt.lo; p--) {
+    const y = head + (opt.hi - p) * row, blk = [1, 3, 6, 8, 10].includes(((p % 12) + 12) % 12);
+    s += `<rect x="${keyW}" y="${y}" width="${steps * cell}" height="${row}" fill="var(${blk ? '--roll-b' : '--roll-w'})"/>`;
+    s += `<text x="${keyW - 6}" y="${y + row - 3}" font-size="9" text-anchor="end" fill="var(--key-ink)">${nn(p)}</text>`;
+  }
+  for (let k = 0; k <= steps; k++) {
+    const x = keyW + k * cell, bar = k % SPB === 0, beat = k % 4 === 0;
+    s += `<line x1="${x}" y1="${head}" x2="${x}" y2="${H}" stroke="var(${bar ? '--g-bar' : beat ? '--g-beat' : '--g-step'})" stroke-width="${bar ? 1.3 : 1}"/>`;
+  }
+  for (let b = 0; b < opt.bars; b++) {
+    s += `<text x="${keyW + b * SPB * cell + 3}" y="12" font-size="10" fill="var(--muted)">${esc(opt.labels[b] || '')}</text>`;
+  }
+  for (const n of opt.notes) {
+    if (n.p < opt.lo || n.p > opt.hi) continue;
+    const x = keyW + ((n.b - 1) * SPB + n.s) * cell + 1, y = head + (opt.hi - n.p) * row + 1, w = Math.max(3, n.l * cell - 2);
+    s += `<rect x="${x}" y="${y}" width="${w}" height="${row - 2}" rx="2.5" fill="var(--${n.c})"><title>${nn(n.p)}</title></rect>`;
+    if (w >= 28) s += `<text x="${x + 3}" y="${y + row - 4}" font-size="8.5" fill="${NOTE_FG[n.c] || 'var(--on-note)'}">${nn(n.p)}</text>`;
+  }
+  return s + '</svg>';
+}
+function rollBlock(r) {
+  const legend = r.legend && r.legend.length > 1 ? `<div class="legend">${r.legend.map(l => `<span><span class="dot" style="background:var(--${l.c})"></span>${esc(l.label)}</span>`).join('')}</div>` : '';
+  return (r.title ? `<h4 style="margin-top:10px">${esc(r.title)}</h4>` : '') + `<div class="scroll" style="margin-top:8px">${roll(r)}</div>` + legend;
+}
+function drumGrids(d) {
+  let html = '<div class="drums-wrap">';
+  for (const inst of d.instruments) {
+    let t = `<div><h4>${esc(inst.label)}</h4><div class="scroll"><table class="drumgrid"><tr><th class="rowh"></th>${STEPNAME.map(s => `<th>${s}</th>`).join('')}</tr>`;
+    for (const r of inst.rows) {
+      t += `<tr><th class="rowh">${esc(r.label)}</th>${[...r.steps.padEnd(SPB, '.')].slice(0, SPB).map((ch, i) => `<td class="${'Xxg'.includes(ch) ? ch : ''}${i % 4 === 0 ? ' beat' : ''}" title="${STEPNAME[i]}"></td>`).join('')}</tr>`;
+    }
+    html += t + '</table></div></div>';
+  }
+  return html + '</div>';
+}
+
+function songMap(m) {
+  const bw = 6.2, lw = 104, top = 44, lh = 17, nb = m.nb;
+  const W = lw + nb * bw + 4, H = top + m.lanes.length * lh + 8;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="song map">`;
+  m.sections.forEach((sec, i) => {
+    const x = lw + (sec.a - 1) * bw, w = (sec.b - sec.a + 1) * bw;
+    s += `<rect x="${x}" y="2" width="${w}" height="22" fill="var(${i % 2 ? '--panel2' : '--roll-b'})" stroke="var(--line)"/>`;
+    if (w > 30) s += `<text x="${x + 4}" y="17" font-size="10.5" fill="var(--ink)">${esc(sec.name)}</text>`;
+    if (w > 24 && sec.name) s += `<text x="${x + 1}" y="37" font-size="9" fill="var(--muted)">${sec.a}</text>`;
+  });
+  for (const mk of m.marks) for (const b of mk.bars) s += `<rect x="${lw + (b - 1) * bw}" y="${top - 4}" width="${bw}" height="${H - top}" fill="var(--mark)" opacity="${mk.strength === 'hard' ? .5 : .22}"/>`;
+  m.lanes.forEach((ln, i) => {
+    const y = top + i * lh;
+    s += `<text x="${lw - 8}" y="${y + 12}" font-size="10" text-anchor="end" fill="var(--ink)">${esc(ln.name)}</text>`;
+    s += `<rect x="${lw}" y="${y + 2}" width="${nb * bw}" height="${lh - 5}" fill="var(--roll-b)" opacity=".6"/>`;
+    for (const [a, b] of ln.r) s += `<rect x="${lw + (a - 1) * bw}" y="${y + 2}" width="${(b - a + 1) * bw}" height="${lh - 5}" rx="2" fill="var(--${ln.c})" opacity=".9"/>`;
+  });
+  return s + '</svg>';
+}
+function sectionTable(m) {
+  const fmt = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+  let h = '<thead><tr><th>Section</th><th>DAW bars</th><th>Starts (kit audio)</th><th>Starts (original file)</th></tr></thead><tbody>';
+  for (const sec of m.sections) if (sec.name) h += `<tr><td><b>${esc(sec.name)}</b></td><td>${sec.a}${sec.b !== sec.a ? '–' + sec.b : ''}</td><td>${fmt(sec.t_daw)}</td><td>${fmt(sec.t_orig)}</td></tr>`;
+  return `<div class="scroll" style="margin-top:12px"><table>${h}</tbody></table></div>`;
+}
+
+function card(c) {
+  let h = `<div class="card" id="l-${esc(c.id)}"><div class="layer-head"><span class="dot" style="background:var(--${c.color})"></span><h3>${md(c.title)}</h3><span class="where">${md(c.where)}</span></div>`;
+  if (c.about) h += `<p>${md(c.about)}</p>`;
+  if (c.list && c.list.length) h += ol(c.list);
+  if (c.monkey && c.monkey.length) h += `<h4>Monkey it</h4>${ol(c.monkey)}`;
+  const a = c.answer;
+  if (a && (a.rolls.length || a.tables.length || a.drums || a.text)) {
+    h += `<details><summary>${esc(a.summary)}</summary>`;
+    if (a.intro) h += `<p>${md(a.intro)}</p>`;
+    for (const t of a.tables) h += table(t);
+    for (const r of a.rolls) h += rollBlock(r);
+    if (a.drums) h += drumGrids(a.drums);
+    if (a.text) h += `<p>${md(a.text)}</p>`;
+    if (a.note) h += `<p class="muted small">${md(a.note)}</p>`;
+    h += '</details>';
+  }
+  const R = c.recipes || {}, cols = [['fl', 'FL Studio'], ['ableton', 'Ableton Live'], ['garageband', 'GarageBand']].filter(([k]) => R[k] && R[k].length);
+  if (cols.length) h += `<div class="recipe cols">${cols.map(([k, t]) => `<div><h4>${t}</h4>${ol(R[k])}</div>`).join('')}</div>`;
+  if (c.sound) h += `<div class="recipe"><h4>Sound</h4><p>${md(c.sound)}</p></div>`;
+  return h + '</div>';
+}
+
+function render() {
+  const D = DATA;
+  document.getElementById('eyebrow').textContent = D.eyebrow;
+  document.getElementById('title').innerHTML = md(D.title);
+  document.getElementById('lede').innerHTML = md(D.lede);
+  document.getElementById('chips').innerHTML = D.chips.map(c => `<span>${md(c)}</span>`).join('');
+  let n = 0, h = '';
+  const sec = (id, title) => `<h2 id="${id}">${++n} · ${md(title)}</h2>`;
+  h += sec('dna', "The song's DNA (read this first)") + `<div class="card">${ol(D.dna)}</div>`;
+  h += sec('setup', 'Set up your session') + '<div class="three">' +
+    [['FL Studio', D.setup.fl], ['Ableton Live', D.setup.ableton], ['GarageBand', D.setup.garageband]].map(([t, l]) => `<div class="card"><h3>${t}</h3>${ol(l)}</div>`).join('') + '</div>';
+  const marks = D.map.marks.filter(m => m.bars.length);
+  h += sec('map', 'Song map') + `<div class="card"><div class="scroll">${songMap(D.map)}</div>` +
+    (marks.length ? `<div class="legend">${marks.map(m => `<span><span class="dot" style="background:var(--mark);opacity:${m.strength === 'hard' ? 1 : .55}"></span>${esc(m.label)}</span>`).join('')}</div>` : '') +
+    sectionTable(D.map) + (D.map.note ? `<p class="muted small">${md(D.map.note)}</p>` : '') + '</div>';
+  for (const hm of D.harmony) {
+    h += sec('loop', hm.title) + '<div class="card">' + (hm.intro ? `<p>${md(hm.intro)}</p>` : '') + table(hm.table);
+    if (hm.rolls.length) h += `<details><summary>${esc(hm.rolls_summary)}</summary>${hm.rolls.map(rollBlock).join('')}</details>`;
+    if (hm.note) h += `<p class="muted small">${md(hm.note)}</p>`;
+    if (hm.callout) h += `<p class="callout">${md(hm.callout)}</p>`;
+    h += '</div>';
+  }
+  h += sec('layers', 'Every layer — monkey it, then check') + `<p class="muted">${md(D.cards_intro)}</p>` + D.cards.map(card).join('');
+  h += sec('method', 'The monkey method (works for any track)') + `<div class="card">${ol(D.method)}</div>`;
+  h += sec('plan', 'Practice plan') + `<div class="card">${ol(D.plan)}</div>`;
+  h += sec('files', "What's in the kit") + `<div class="card">${ol(D.files)}</div>`;
+  h += sec('accuracy', 'How sure is this?') + `<div class="card">${ol(D.accuracy)}</div>`;
+  h += `<footer>${md(D.footer)} · Made with <a href="https://github.com/WorldInnovationsDepartment/mavpa">mavpa</a>.</footer>`;
+  const open = [...document.querySelectorAll('details')].map(d => d.open);
+  document.getElementById('main').innerHTML = h;
+  document.querySelectorAll('details').forEach((d, i) => { if (open[i]) d.open = true; });
+}
+
+function setupToggles() {
+  document.querySelectorAll('#naming button').forEach(b => b.addEventListener('click', () => {
+    naming = b.dataset.v;
+    document.querySelectorAll('#naming button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+    try { localStorage.setItem('mavpa-naming', naming); } catch (e) {}
+  }));
+  document.querySelectorAll('#theme button').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.v;
+    if (v === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', v);
+    document.querySelectorAll('#theme button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    try { localStorage.setItem('mavpa-theme', v); } catch (e) {}
+  }));
+  try {
+    const n = localStorage.getItem('mavpa-naming'); if (n && OFF[n] !== undefined) document.querySelector(`#naming button[data-v="${n}"]`).click();
+    const t = localStorage.getItem('mavpa-theme'); if (t) document.querySelector(`#theme button[data-v="${t}"]`).click();
+  } catch (e) {}
+}
+render(); setupToggles();
+</script>
+</body>
+</html>

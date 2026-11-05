@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+
+# mavpa workspaces and kits: they contain other people's music. Keep them local.
+workspaces/
+*/kit/audio/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.aiff
+!examples/demo/*.json
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

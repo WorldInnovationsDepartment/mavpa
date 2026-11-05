@@ -1,0 +1,26 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "mavpa",
+  "owner": {
+    "name": "Danylo Vorvul"
+  },
+  "description": "mavpa (Ukrainian for \"monkey\"): split any track into its parts, then rebuild it by hand.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "mavpa",
+      "displayName": "mavpa",
+      "description": "Monkey see, monkey do: split any track into its parts (aligned stems, MIDI per layer and per loop) and get an ear-first lesson to rebuild it by hand in Ableton Live, FL Studio or GarageBand.",
+      "source": "./",
+      "version": "0.1.0",
+      "author": {
+        "name": "Danylo Vorvul"
+      },
+      "homepage": "https://github.com/WorldInnovationsDepartment/mavpa",
+      "repository": "https://github.com/WorldInnovationsDepartment/mavpa",
+      "license": "MIT",
+      "category": "learning",
+      "keywords": ["music", "stems", "midi", "ableton", "fl-studio", "garageband", "ear-training"]
+    }
+  ]
+}

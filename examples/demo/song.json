@@ -1,0 +1,1038 @@
+{
+ "mavpa": 1,
+ "title": "Monkey Business (mavpa demo)",
+ "source": "input/track.wav",
+ "stems": "work/stems/htdemucs_ft",
+ "grid": {
+  "bpm": 100.0,
+  "beats_per_bar": 4,
+  "beat_unit": 4,
+  "downbeat": 0.25,
+  "lead_in_bars": 1,
+  "steps_per_beat": 4
+ },
+ "key": {
+  "tonic": "A",
+  "mode": "aeolian",
+  "name": "A minor",
+  "midi_key": "C",
+  "summary": "White keys, A is home. The E chords borrow one black key, G♯: the pull back to Am.",
+  "readme": "A minor = white keys + G# on the E chords, home chord Am"
+ },
+ "bars": 40,
+ "sections": [
+  {
+   "name": "Intro",
+   "from": 1,
+   "to": 4
+  },
+  {
+   "name": "Main A",
+   "from": 5,
+   "to": 20
+  },
+  {
+   "name": "Break",
+   "from": 21,
+   "to": 28
+  },
+  {
+   "name": "Main B",
+   "from": 29,
+   "to": 36
+  },
+  {
+   "name": "Outro",
+   "from": 37,
+   "to": 40
+  }
+ ],
+ "marks": [],
+ "layers": [
+  {
+   "id": "drums",
+   "name": "drums",
+   "role": "drums",
+   "stem": "drums",
+   "drums": true,
+   "kit": {
+    "kick": {
+     "note": 36,
+     "label": "Kick"
+    },
+    "snare": {
+     "note": 38,
+     "label": "Snare"
+    },
+    "hat": {
+     "note": 42,
+     "label": "Closed hat"
+    }
+   },
+   "velocity": {
+    "X": 110,
+    "x": 80,
+    "g": 55
+   },
+   "patterns": {
+    "beat": {
+     "bars": 1,
+     "grid": {
+      "kick": {
+       "1": "X.....x.X.....x."
+      },
+      "snare": {
+       "1": "....X.......X..."
+      },
+      "hat": {
+       "1": "x.X.x.X.x.X.x.X."
+      }
+     }
+    }
+   },
+   "play": [
+    {
+     "pattern": "beat",
+     "from": 5,
+     "to": 20
+    },
+    {
+     "pattern": "beat",
+     "from": 29,
+     "to": 36
+    }
+   ]
+  },
+  {
+   "id": "bass",
+   "name": "bass",
+   "role": "bass",
+   "stem": "bass",
+   "program": 38,
+   "patterns": {
+    "loop": {
+     "bars": 8,
+     "notes": {
+      "1": [
+       [
+        0,
+        6,
+        "A1",
+        100
+       ],
+       [
+        6,
+        2,
+        "A1",
+        85
+       ],
+       [
+        8,
+        6,
+        "A2",
+        100
+       ],
+       [
+        14,
+        2,
+        "A1",
+        85
+       ]
+      ],
+      "2": [
+       [
+        0,
+        6,
+        "G1",
+        100
+       ],
+       [
+        6,
+        2,
+        "G1",
+        85
+       ],
+       [
+        8,
+        6,
+        "G2",
+        100
+       ],
+       [
+        14,
+        2,
+        "G1",
+        85
+       ]
+      ],
+      "3": [
+       [
+        0,
+        6,
+        "F1",
+        100
+       ],
+       [
+        6,
+        2,
+        "F1",
+        85
+       ],
+       [
+        8,
+        6,
+        "F2",
+        100
+       ],
+       [
+        14,
+        2,
+        "F1",
+        85
+       ]
+      ],
+      "4": [
+       [
+        0,
+        6,
+        "E1",
+        100
+       ],
+       [
+        6,
+        2,
+        "E1",
+        85
+       ],
+       [
+        8,
+        6,
+        "E2",
+        100
+       ],
+       [
+        14,
+        2,
+        "E1",
+        85
+       ]
+      ],
+      "5": [
+       [
+        0,
+        6,
+        "A1",
+        100
+       ],
+       [
+        6,
+        2,
+        "A1",
+        85
+       ],
+       [
+        8,
+        6,
+        "A2",
+        100
+       ],
+       [
+        14,
+        2,
+        "A1",
+        85
+       ]
+      ],
+      "6": [
+       [
+        0,
+        6,
+        "C2",
+        100
+       ],
+       [
+        6,
+        2,
+        "C2",
+        85
+       ],
+       [
+        8,
+        6,
+        "C3",
+        100
+       ],
+       [
+        14,
+        2,
+        "C2",
+        85
+       ]
+      ],
+      "7": [
+       [
+        0,
+        6,
+        "D2",
+        100
+       ],
+       [
+        6,
+        2,
+        "D2",
+        85
+       ],
+       [
+        8,
+        6,
+        "D3",
+        100
+       ],
+       [
+        14,
+        2,
+        "D2",
+        85
+       ]
+      ],
+      "8": [
+       [
+        0,
+        6,
+        "E2",
+        100
+       ],
+       [
+        6,
+        2,
+        "E2",
+        85
+       ],
+       [
+        8,
+        6,
+        "E3",
+        100
+       ],
+       [
+        14,
+        2,
+        "E2",
+        85
+       ]
+      ]
+     }
+    }
+   },
+   "play": [
+    {
+     "pattern": "loop",
+     "from": 5,
+     "to": 36,
+     "anchor": 1
+    }
+   ]
+  },
+  {
+   "id": "pad",
+   "name": "saw pad",
+   "role": "harmony",
+   "stem": "other",
+   "program": 89,
+   "patterns": {
+    "loop": {
+     "bars": 8,
+     "notes": {
+      "1": [
+       [
+        0,
+        16,
+        "A3",
+        80
+       ],
+       [
+        0,
+        16,
+        "C4",
+        80
+       ],
+       [
+        0,
+        16,
+        "E4",
+        80
+       ]
+      ],
+      "2": [
+       [
+        0,
+        16,
+        "A3",
+        80
+       ],
+       [
+        0,
+        16,
+        "C4",
+        80
+       ],
+       [
+        0,
+        16,
+        "E4",
+        80
+       ]
+      ],
+      "3": [
+       [
+        0,
+        16,
+        "F3",
+        80
+       ],
+       [
+        0,
+        16,
+        "A3",
+        80
+       ],
+       [
+        0,
+        16,
+        "C4",
+        80
+       ],
+       [
+        0,
+        16,
+        "E4",
+        80
+       ]
+      ],
+      "4": [
+       [
+        0,
+        16,
+        "E3",
+        80
+       ],
+       [
+        0,
+        16,
+        "G#3",
+        80
+       ],
+       [
+        0,
+        16,
+        "B3",
+        80
+       ],
+       [
+        0,
+        16,
+        "D4",
+        80
+       ]
+      ],
+      "5": [
+       [
+        0,
+        16,
+        "A3",
+        80
+       ],
+       [
+        0,
+        16,
+        "C4",
+        80
+       ],
+       [
+        0,
+        16,
+        "E4",
+        80
+       ]
+      ],
+      "6": [
+       [
+        0,
+        16,
+        "G3",
+        80
+       ],
+       [
+        0,
+        16,
+        "C4",
+        80
+       ],
+       [
+        0,
+        16,
+        "E4",
+        80
+       ]
+      ],
+      "7": [
+       [
+        0,
+        16,
+        "F3",
+        80
+       ],
+       [
+        0,
+        16,
+        "A3",
+        80
+       ],
+       [
+        0,
+        16,
+        "C4",
+        80
+       ],
+       [
+        0,
+        16,
+        "D4",
+        80
+       ]
+      ],
+      "8": [
+       [
+        0,
+        16,
+        "E3",
+        80
+       ],
+       [
+        0,
+        16,
+        "G#3",
+        80
+       ],
+       [
+        0,
+        16,
+        "B3",
+        80
+       ]
+      ]
+     }
+    }
+   },
+   "play": [
+    {
+     "pattern": "loop",
+     "from": 1,
+     "to": 40,
+     "anchor": 1
+    }
+   ]
+  },
+  {
+   "id": "lead",
+   "name": "square lead hook",
+   "role": "lead",
+   "stem": "other",
+   "program": 80,
+   "color": "flick",
+   "patterns": {
+    "loop": {
+     "bars": 8,
+     "notes": {
+      "1": [
+       [
+        0,
+        2,
+        "E5",
+        95
+       ],
+       [
+        2,
+        2,
+        "A5",
+        85
+       ],
+       [
+        4,
+        4,
+        "C6",
+        95
+       ],
+       [
+        8,
+        2,
+        "B5",
+        95
+       ],
+       [
+        10,
+        2,
+        "A5",
+        85
+       ],
+       [
+        12,
+        4,
+        "E5",
+        95
+       ]
+      ],
+      "2": [
+       [
+        0,
+        4,
+        "G5",
+        95
+       ],
+       [
+        4,
+        4,
+        "E5",
+        95
+       ],
+       [
+        8,
+        8,
+        "D5",
+        95
+       ]
+      ],
+      "3": [
+       [
+        0,
+        2,
+        "C5",
+        95
+       ],
+       [
+        2,
+        2,
+        "E5",
+        85
+       ],
+       [
+        4,
+        4,
+        "A5",
+        95
+       ],
+       [
+        8,
+        2,
+        "G5",
+        95
+       ],
+       [
+        10,
+        2,
+        "F5",
+        85
+       ],
+       [
+        12,
+        4,
+        "E5",
+        95
+       ]
+      ],
+      "4": [
+       [
+        0,
+        4,
+        "D5",
+        95
+       ],
+       [
+        4,
+        4,
+        "E5",
+        95
+       ],
+       [
+        8,
+        8,
+        "G#5",
+        95
+       ]
+      ],
+      "5": [
+       [
+        0,
+        2,
+        "E5",
+        95
+       ],
+       [
+        2,
+        2,
+        "A5",
+        85
+       ],
+       [
+        4,
+        4,
+        "C6",
+        95
+       ],
+       [
+        8,
+        2,
+        "B5",
+        95
+       ],
+       [
+        10,
+        2,
+        "A5",
+        85
+       ],
+       [
+        12,
+        4,
+        "E5",
+        95
+       ]
+      ],
+      "6": [
+       [
+        0,
+        4,
+        "G5",
+        95
+       ],
+       [
+        4,
+        4,
+        "C6",
+        95
+       ],
+       [
+        8,
+        8,
+        "E6",
+        95
+       ]
+      ],
+      "7": [
+       [
+        0,
+        2,
+        "F5",
+        95
+       ],
+       [
+        2,
+        2,
+        "A5",
+        85
+       ],
+       [
+        4,
+        4,
+        "D6",
+        95
+       ],
+       [
+        8,
+        2,
+        "C6",
+        95
+       ],
+       [
+        10,
+        2,
+        "A5",
+        85
+       ],
+       [
+        12,
+        4,
+        "F5",
+        95
+       ]
+      ],
+      "8": [
+       [
+        0,
+        8,
+        "E5",
+        95
+       ],
+       [
+        8,
+        4,
+        "G#5",
+        95
+       ],
+       [
+        12,
+        4,
+        "B5",
+        95
+       ]
+      ]
+     }
+    }
+   },
+   "play": [
+    {
+     "pattern": "loop",
+     "from": 1,
+     "to": 20,
+     "anchor": 1
+    },
+    {
+     "pattern": "loop",
+     "from": 29,
+     "to": 36,
+     "anchor": 1
+    }
+   ]
+  }
+ ],
+ "harmony": [
+  {
+   "title": "The loop: bass + harmony",
+   "bass": {
+    "layer": "bass",
+    "pattern": "loop"
+   },
+   "voicing": {
+    "layer": "pad",
+    "pattern": "loop"
+   },
+   "chords": [
+    "Am",
+    "Am/G",
+    "Fmaj7",
+    "E7",
+    "Am",
+    "C",
+    "Dm7",
+    "E"
+   ],
+   "functions": [
+    "i",
+    "i/♭VII",
+    "♭VImaj7",
+    "V7",
+    "i",
+    "♭III",
+    "iv7",
+    "V"
+   ],
+   "intro": "Eight bars, one chord each, from the first bar to the last. Learn these and you can play the whole song.",
+   "rolls_summary": "Show the loop as a piano roll (pad + bass)",
+   "rolls": [
+    {
+     "parts": [
+      {
+       "layer": "pad",
+       "pattern": "loop"
+      }
+     ],
+     "lo": "D3",
+     "hi": "F4",
+     "bar_labels": [
+      "Am",
+      "Am/G",
+      "Fmaj7",
+      "E7",
+      "Am",
+      "C",
+      "Dm7",
+      "E"
+     ]
+    },
+    {
+     "parts": [
+      {
+       "layer": "bass",
+       "pattern": "loop"
+      }
+     ],
+     "lo": "D1",
+     "hi": "F3",
+     "row": 11,
+     "bar_labels": "loop {k}"
+    }
+   ],
+   "callout": "Why it pulls: bars 4 and 8 are **E major chords** (with {{G#3}}), the one black key in the song. The G♯ leans up into A, so every loop lands home on Am."
+  }
+ ],
+ "audio": [
+  {
+   "stem": "drums",
+   "name": "01_drums"
+  },
+  {
+   "stem": "bass",
+   "name": "02_bass"
+  },
+  {
+   "stem": "other",
+   "name": "03_music_pad_lead"
+  }
+ ],
+ "guide": {
+  "title": "Monkey Business — how it is built, and how to rebuild it",
+  "eyebrow": "mavpa demo kit · split into parts · rebuild by hand",
+  "lede": "A 96-second original song made for mavpa, so you can try the whole flow without anyone's copyright in the way. Four parts, one 8-bar loop, a break, and a hook.",
+  "chips": [
+   "4/4 time",
+   "100 BPM",
+   "A minor, white keys + G♯",
+   "8-bar loop",
+   "40 bars · 1:36"
+  ],
+  "lead_in": "a quarter-second of silence before the first downbeat",
+  "dna": [
+   "**Plain 4/4 at exactly 100 BPM.** Count `1 e & a 2 e & a 3 e & a 4 e & a`, 16 steps per bar.",
+   "**Key: A minor.** Every white key, plus {{G#3}} in the E chords (bars 4 and 8 of the loop). That one black key is the hook of the harmony.",
+   "**One 8-bar loop runs the whole song.** Sections only add or remove parts: pad + lead (intro), everything (main), pad + bass (break), pad alone (outro).",
+   "**Bar 1 is at 0.25 s.** In this kit it sits on **DAW bar 2**. All bar numbers below are DAW bars."
+  ],
+  "cards": [
+   {
+    "layer": "bass",
+    "title": "Bass",
+    "about": "A round, slightly driven sine bass in the lowest octave. One note per bar (the chord root), played as a **root–root–octave–root** rhythm: on 1, on the \"&\" of 2, on 3 one octave up, and a pickup on the \"&\" of 4.",
+    "monkey": [
+     "Solo `02_bass` and loop DAW bars 6–13.",
+     "Find bar 1's note on a plain sine in the lowest octave. Hint: it's the home note.",
+     "The roots walk down: home, one step down, one more, one more. Then home again and up.",
+     "Now the rhythm: four hits per bar, the third one jumps an octave."
+    ],
+    "answer": {
+     "tables": [
+      {
+       "type": "notes",
+       "pattern": "loop"
+      }
+     ]
+    },
+    "recipes": {
+     "fl": [
+      "**3xOsc**: OSC 1 sine, a touch of OSC 2 triangle. Mono, Porta off.",
+      "Fruity Soft Clipper for warmth."
+     ],
+     "ableton": [
+      "**Operator**: sine, Voices 1. **Saturator** (Soft Sine) 4 dB."
+     ],
+     "garageband": [
+      "**Alchemy** → *Bass* → a sub/sine preset; or *Retro Synth* sine with a little drive."
+     ]
+    }
+   },
+   {
+    "layer": "pad",
+    "title": "Saw pad (the chords)",
+    "about": "Three detuned saws per note through a low-pass filter: warm, with a soft 80 ms attack. One chord per bar, held for the whole bar.",
+    "monkey": [
+     "Solo `03_music_pad_lead` in the break (DAW bars 22–29); the lead is out there.",
+     "Start from the bass note, then find the triad on top using white keys.",
+     "Bars 4 and 8 sound brighter. Find the one black key there."
+    ],
+    "answer": {
+     "tables": [
+      {
+       "type": "voicing",
+       "pattern": "loop",
+       "chords": [
+        "Am",
+        "Am/G",
+        "Fmaj7",
+        "E7",
+        "Am",
+        "C",
+        "Dm7",
+        "E"
+       ]
+      }
+     ]
+    },
+    "recipes": {
+     "fl": [
+      "**3xOsc**: three saws detuned −4/0/+5 cents, attack 80 ms, release 250 ms.",
+      "Fruity Filter low-pass ~1.8 kHz."
+     ],
+     "ableton": [
+      "**Wavetable** saw with Unison (3 voices). Filter LP ~1.8 kHz. Amp attack 80 ms, release 250 ms."
+     ],
+     "garageband": [
+      "**Alchemy** → *Pads* → a warm saw pad. Lower the filter cutoff until it sits behind the lead."
+     ]
+    }
+   },
+   {
+    "layer": "lead",
+    "title": "Square lead hook",
+    "about": "A bright, plucky square-ish lead that decays fast. It plays an 8-bar melody that outlines each chord, starting on {{E5}} and leaping up to {{C6}}.",
+    "monkey": [
+     "Loop DAW bars 2–3 and sing the first phrase.",
+     "It starts on the 5th of A minor and climbs: E, A, C.",
+     "Every odd bar is busy (8ths and 16ths), every even bar answers with long notes."
+    ],
+    "answer": {
+     "rolls": [
+      {
+       "parts": [
+        {
+         "layer": "lead",
+         "pattern": "loop"
+        }
+       ],
+       "lo": "C5",
+       "hi": "F6",
+       "bar_labels": [
+        "Am",
+        "Am/G",
+        "Fmaj7",
+        "E7",
+        "Am",
+        "C",
+        "Dm7",
+        "E"
+       ]
+      }
+     ]
+    },
+    "sound": "Square or saw, short decay (~350 ms), no sustain, a little low-pass around 3.5 kHz. In GarageBand: *Retro Synth* → square lead with a short envelope."
+   },
+   {
+    "layer": "drums",
+    "title": "Drums",
+    "about": "A simple 4/4 groove: kick on 1, the \"&\" of 2, 3 and the \"&\" of 4; snare on 2 and 4; hats on every 8th with the off-beats accented.",
+    "monkey": [
+     "Solo `01_drums`, loop one bar and count 16 steps.",
+     "Kick first (4 hits), then the snare (2), then the hats (8)."
+    ],
+    "answer": {
+     "note": "MIDI map: kick 36, snare 38, closed hat 42 (C1, D1, F♯1 on an Ableton Drum Rack)."
+    },
+    "recipes": {
+     "fl": [
+      "FPC: any 808/909 kit; program one 16-step pattern."
+     ],
+     "ableton": [
+      "Drum Rack: kick C1, snare D1, hat F♯1."
+     ],
+     "garageband": [
+      "Drummer track off; use *Drum Machine Designer* and draw the pattern."
+     ]
+    }
+   }
+  ],
+  "plan": [
+   "**Session 1:** set 4/4 at 100, transcribe the bass loop. Checkpoint: your sine locks with the stem.",
+   "**Session 2:** the eight pad chords. Checkpoint: pad + bass sounds like the break.",
+   "**Session 3:** the lead hook, two bars at a time.",
+   "**Session 4:** drums, then arrange the sections and A/B with the original."
+  ]
+ }
+}

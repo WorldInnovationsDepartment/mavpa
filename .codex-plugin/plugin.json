@@ -1,0 +1,33 @@
+{
+  "name": "mavpa",
+  "version": "0.1.0",
+  "description": "Monkey see, monkey do: split any track into its parts (aligned stems, MIDI per layer and per loop) and get an ear-first lesson to rebuild it by hand in Ableton Live, FL Studio or GarageBand.",
+  "author": {
+    "name": "Danylo Vorvul"
+  },
+  "homepage": "https://github.com/WorldInnovationsDepartment/mavpa",
+  "license": "MIT",
+  "keywords": [
+    "music",
+    "stems",
+    "midi",
+    "transcription",
+    "ableton",
+    "fl-studio",
+    "garageband",
+    "ear-training"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "mavpa",
+    "shortDescription": "Split a track into parts, rebuild it by hand",
+    "longDescription": "mavpa (Ukrainian for \"monkey\") turns an mp3 into a monkey kit: aligned stems, MIDI answer keys per layer and per loop, and an ear-first lesson (guide.html) that opens in Ableton Live, FL Studio or GarageBand.",
+    "developerName": "Danylo Vorvul",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Monkey this track: ~/Downloads/song.mp3",
+    "composerIcon": "./assets/mavpa-icon.png",
+    "logo": "./assets/mavpa-icon.png",
+    "brandColor": "#14142B"
+  }
+}

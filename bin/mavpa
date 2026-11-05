@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Convenience entry point: `bin/mavpa <command>` (see skills/mavpa/scripts/mavpa).
+exec "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../skills/mavpa/scripts/mavpa" "$@"
