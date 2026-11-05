@@ -22,3 +22,6 @@ workspaces/
 .DS_Store
 .idea/
 .vscode/
+
+# Hallmark design runs (screenshots of private reports)
+.hallmark/

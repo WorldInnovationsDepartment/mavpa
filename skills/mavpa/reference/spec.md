@@ -37,7 +37,7 @@ A layer is one part. It becomes one MIDI track, one lane on the song map and one
   "role": "bass",                               // bass | harmony | pad | keys | lead | hook | pluck | vocal | fx | drums
   "stem": "bass",                               // which stem verify/overlay compare it with
   "program": 38,                                // General MIDI program (0-127), optional
-  "color": "bass",                              // bass pad pad2 flick tick top spark vocal drums
+  "color": "bass",                              // bass pad pad2 flick tick top spark vocal drums (the stem's colour, see below)
   "patterns": {
     "loop":  {"bars": 8, "notes": {"1": [[0, 6, "A1", 100], [6, 2, "A1", 85], [8, 6, "A2", 100]],   // [step, length, note, velocity]
                                    "2": [[0, 16, "G1", 100]]}},
@@ -64,6 +64,12 @@ A layer is one part. It becomes one MIDI track, one lane on the song map and one
 
 Notes use scientific names (middle C = C4): `E1`, `F#3`, `Bb4`. Steps can be fractions for
 swing or triplets (`2.67`).
+
+`color` picks the layer's colour in the guide, and the guide colours by stem, like the bands
+of the mavpa logo: `drums` coral, `bass` lavender, `vocal` cream, and every music-stem layer
+(`pad`, `pad2`, `top`, `flick`, `tick`, `spark`) a mint at its own lightness. So choose the key
+by the stem the part lives in, and give layers that share a stem different keys so their
+lanes and rolls stay apart.
 
 ### Drum layers
 

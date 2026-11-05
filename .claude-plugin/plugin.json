@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "mavpa",
   "displayName": "mavpa",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Monkey see, monkey do: split any track into its parts (aligned stems, MIDI per layer and per loop) and get an ear-first lesson to rebuild it by hand in Ableton Live, FL Studio or GarageBand.",
   "icon": "assets/mavpa-icon.png",
   "author": {

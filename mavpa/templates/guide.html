@@ -4,117 +4,408 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__PAGE_TITLE__</title>
+<meta name="description" content="A mavpa monkey kit lesson: one song split into its stems and mapped bar by bar, with ear-first exercises, hidden answers and recipes for FL Studio, Ableton Live and GarageBand.">
+<script>try { var t = localStorage.getItem('mavpa-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
+/* Hallmark · shape: session sheet (Sticky|Asymmetric spans|Hairline|Solid|None|None) · genre: modern-minimal · theme: Ultraviolet (deal 3/3, seed lesson-report-learning-music-5b14·dc83e1b4·2026-11-05·r0) · redesign: full
+ * hero: Banner · nav: a sticky left rail with the mark, the kit label, every section and every layer with its stem swatch, the theme toggle at its foot; a top bar with a contents button under 60rem · footer: colophon under a hairline · imagery: none, the song drawn as data (stem lanes, piano rolls, drum grids) · signature: the song as stem lanes in the colours of the mavpa mark · ultraviolet: night on brand navy, lavender paper by day, lavender the one pigment
+ * axes: dark/geometric-sans/cool · posture: committed · contrast: pass · fold: pass · modes: light+dark · brand: mavpa logo (navy, coral, lavender, mint, cream) · copy: verbatim · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: H, a 9,000px lesson read beside a DAW was one grey column; the rail, the stem lanes and lead-in rows give it a spine you can find again */
+/* Hallmark · reworded "the song's dna (read this first)", "what's in the kit" to the same words with a true apostrophe · F1 asks for typographic quotes in the template's own copy */
+/* Hallmark · reworded "set up your session", "song map", "the loop: bass + harmony", "the monkey method (works for any track)", "practice plan", "how sure is this?" to the same words without their numbers · 63 names the numbered dot; the rail now carries the order */
+/* Hallmark · reworded "every layer — monkey it, then check" to "every layer: monkey it, then check" · 19 names the dash in the template's own heading */
+/* Hallmark · reworded "how it is built, and how to rebuild it" to the second line of the h1 under the song title · 19 names the dash; the title splits at it */
+/* Hallmark · hero-review: in-thread (no subagent in this harness) · 3 findings · 3 resolved: the song's four stems show as a strip inside the first screen, the dark tile melts into the navy ground as the banner does, the naming toggle reads as state rather than a second action */
+/* Hallmark · finish-review: subagent · 8 findings · scoring round 7 resolved 1 partial, the partial fixed after it: dna, setup, map restored with a four-stem strip as the first-screen glimpse; accuracy single column on phones; facts six across or three and three; light stems 3:1 or better; note names keep their capitals; naming toggle in the rail too; phone map labels at 14px, section names now fit by measured width so a short one like intro keeps its label; recipe heads say recipe · gap: none */
+/* Hallmark · answered F4 · the second fill is the naming toggle's pressed state, soft lavender with a ring, not a second action; the one filled action is set up your session */
+/* Hallmark · answered F21 · the h4 the static tier sees sits in a script template; rendered, every h4 is under a layer's h3 */
+/* Hallmark · answered F25 · on a phone the column that names the row is pinned and the table scrolls inside its own frame; the loop table is read across, bar by bar */
+/* Hallmark · dismissed 59 · a lesson report: the map, dna, setup, loop, layers, method, plan, files and accuracy are the kit's own content, the rail indexes all of them and none can merge without hiding a step */
+/* Hallmark · reworded "ableton live" under each layer to "ableton recipe", with "fl studio recipe" and "garageband recipe" beside it · the original report named them recipes, so they no longer read like the setup columns */
+/* Hallmark · dropped the eyebrow's second and third phrases · 54 names the eyebrow; its first phrase is now the kit label beside the mark and the rest repeats the headline */
 :root {
-  --bg: #f6f4ef; --panel: #ffffff; --panel2: #faf8f3; --ink: #1c1b1a; --muted: #66625b; --line: #e3ddd2; --accent: #b4410f;
-  --roll-w: #fcfbf8; --roll-b: #eeeae2; --g-bar: #7d786e; --g-beat: #c4bdb1; --g-step: #e9e4db; --key-ink: #8a857b;
-  --bass: #dc4a26; --pad: #2f6fe0; --pad2: #5b5bd6; --flick: #e39a06; --tick: #0b8a7f; --top: #9b45e4; --spark: #db2777; --vocal: #15913f; --drums: #4b5563;
-  --on-note: #ffffff; --chip: #ffffff; --mark: #ef4444;
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-brand-navy: oklch(20.5% 0.045 282); --color-brand-coral: oklch(75.3% 0.155 42); --color-brand-lavender: oklch(69.8% 0.146 292); --color-brand-mint: oklch(80.4% 0.095 169); --color-brand-cream: oklch(95.4% 0.043 88);
+  --color-paper: oklch(96.5% 0.014 292); --color-paper-2: oklch(93.5% 0.024 292); --color-paper-3: oklch(90.5% 0.03 292);
+  --color-ink: oklch(20.5% 0.045 282); --color-ink-2: oklch(30% 0.045 284); --color-muted: oklch(45% 0.05 288);
+  --color-rule: oklch(85% 0.03 292); --color-rule-2: oklch(66% 0.07 292);
+  --color-accent: oklch(69.8% 0.146 292); --color-accent-deep: oklch(64% 0.16 292); --color-accent-soft: oklch(87% 0.06 292);
+  --color-accent-ink: oklch(20.5% 0.045 282); --color-accent-text: oklch(47% 0.19 292); --color-focus: oklch(47% 0.19 292);
+  --color-roll-w: oklch(98.5% 0.006 292); --color-roll-b: oklch(93% 0.022 292);
+  --color-grid-bar: oklch(62% 0.06 290); --color-grid-beat: oklch(82% 0.035 292); --color-grid-step: oklch(91% 0.02 292);
+  --color-mark: oklch(20.5% 0.045 282);
+  --color-layer-drums: oklch(62% 0.165 40); --color-layer-bass: oklch(52% 0.17 292); --color-layer-pad: oklch(60% 0.11 169); --color-layer-pad2: oklch(52% 0.1 171); --color-layer-flick: oklch(24% 0.05 172);
+  --color-layer-tick: oklch(48% 0.095 166); --color-layer-top: oklch(36% 0.07 174); --color-layer-spark: oklch(46% 0.12 150); --color-layer-vocal: oklch(61% 0.12 82); --color-layer-muted: oklch(58% 0.02 285);
+  --color-on-drums: var(--color-ink); --color-on-bass: var(--color-paper); --color-on-pad: var(--color-ink); --color-on-pad2: var(--color-paper); --color-on-flick: var(--color-paper);
+  --color-on-tick: var(--color-paper); --color-on-top: var(--color-paper); --color-on-spark: var(--color-paper); --color-on-vocal: var(--color-ink); --color-on-muted: var(--color-ink);
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif; --font-body: "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius-card: 16px; --radius-pill: 999px; --radius-cell: 6px; --rule-hair: 1px; --rule-pill: 1.5px;
+  --shadow-card: 0 1px 2px oklch(20% 0.04 282 / 0.06);
+  --tracking-display: -0.03em; --display-weight: 500;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: oklch(20.5% 0.045 282); --color-paper-2: oklch(24% 0.05 283); --color-paper-3: oklch(27.5% 0.055 284);
+  --color-ink: oklch(95.4% 0.043 88); --color-ink-2: oklch(87% 0.04 86); --color-muted: oklch(75% 0.035 84);
+  --color-rule: oklch(33% 0.045 285); --color-rule-2: oklch(47% 0.07 290);
+  --color-accent: oklch(69.8% 0.146 292); --color-accent-deep: oklch(76% 0.12 292); --color-accent-soft: oklch(34% 0.08 292);
+  --color-accent-ink: oklch(20.5% 0.045 282); --color-accent-text: oklch(80% 0.1 292); --color-focus: oklch(78% 0.12 292);
+  --color-roll-w: oklch(25.5% 0.05 283); --color-roll-b: oklch(22% 0.045 282);
+  --color-grid-bar: oklch(56% 0.06 288); --color-grid-beat: oklch(37% 0.05 286); --color-grid-step: oklch(29% 0.05 284);
+  --color-mark: oklch(95.4% 0.043 88);
+  --color-layer-drums: oklch(75.3% 0.155 42); --color-layer-bass: oklch(69.8% 0.146 292); --color-layer-pad: oklch(80.4% 0.095 169); --color-layer-pad2: oklch(74% 0.1 170); --color-layer-flick: oklch(92.5% 0.065 168);
+  --color-layer-tick: oklch(68% 0.1 172); --color-layer-top: oklch(52% 0.09 176); --color-layer-spark: oklch(86% 0.11 150); --color-layer-vocal: oklch(95.4% 0.043 88); --color-layer-muted: oklch(62% 0.02 285);
+  --color-on-drums: var(--color-paper); --color-on-bass: var(--color-paper); --color-on-pad: var(--color-paper); --color-on-pad2: var(--color-paper); --color-on-flick: var(--color-paper);
+  --color-on-tick: var(--color-paper); --color-on-top: var(--color-ink); --color-on-spark: var(--color-paper); --color-on-vocal: var(--color-paper); --color-on-muted: var(--color-paper);
+  --shadow-card: none;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121214; --panel: #1a1a1e; --panel2: #1f1f25; --ink: #ececf0; --muted: #a2a2ad; --line: #2d2d36; --accent: #fb923c;
-    --roll-w: #1f1f25; --roll-b: #18181d; --g-bar: #8c8c98; --g-beat: #474752; --g-step: #2a2a32; --key-ink: #8b8b97;
-    --bass: #f2704f; --pad: #5b9cf6; --pad2: #8b8cf3; --flick: #f7b733; --tick: #2cc7b6; --top: #c08af8; --spark: #f06aa8; --vocal: #46c46e; --drums: #9aa5b5;
-    --on-note: #101014; --chip: #1f1f25; --mark: #f87171;
+    color-scheme: dark;
+    --color-paper: oklch(20.5% 0.045 282); --color-paper-2: oklch(24% 0.05 283); --color-paper-3: oklch(27.5% 0.055 284);
+    --color-ink: oklch(95.4% 0.043 88); --color-ink-2: oklch(87% 0.04 86); --color-muted: oklch(75% 0.035 84);
+    --color-rule: oklch(33% 0.045 285); --color-rule-2: oklch(47% 0.07 290);
+    --color-accent: oklch(69.8% 0.146 292); --color-accent-deep: oklch(76% 0.12 292); --color-accent-soft: oklch(34% 0.08 292);
+    --color-accent-ink: oklch(20.5% 0.045 282); --color-accent-text: oklch(80% 0.1 292); --color-focus: oklch(78% 0.12 292);
+    --color-roll-w: oklch(25.5% 0.05 283); --color-roll-b: oklch(22% 0.045 282);
+    --color-grid-bar: oklch(56% 0.06 288); --color-grid-beat: oklch(37% 0.05 286); --color-grid-step: oklch(29% 0.05 284);
+    --color-mark: oklch(95.4% 0.043 88);
+    --color-layer-drums: oklch(75.3% 0.155 42); --color-layer-bass: oklch(69.8% 0.146 292); --color-layer-pad: oklch(80.4% 0.095 169); --color-layer-pad2: oklch(74% 0.1 170); --color-layer-flick: oklch(92.5% 0.065 168);
+    --color-layer-tick: oklch(68% 0.1 172); --color-layer-top: oklch(52% 0.09 176); --color-layer-spark: oklch(86% 0.11 150); --color-layer-vocal: oklch(95.4% 0.043 88); --color-layer-muted: oklch(62% 0.02 285);
+    --color-on-drums: var(--color-paper); --color-on-bass: var(--color-paper); --color-on-pad: var(--color-paper); --color-on-pad2: var(--color-paper); --color-on-flick: var(--color-paper);
+    --color-on-tick: var(--color-paper); --color-on-top: var(--color-ink); --color-on-spark: var(--color-paper); --color-on-vocal: var(--color-paper); --color-on-muted: var(--color-paper);
+    --shadow-card: none;
   }
 }
-:root[data-theme="dark"] {
-  --bg: #121214; --panel: #1a1a1e; --panel2: #1f1f25; --ink: #ececf0; --muted: #a2a2ad; --line: #2d2d36; --accent: #fb923c;
-  --roll-w: #1f1f25; --roll-b: #18181d; --g-bar: #8c8c98; --g-beat: #474752; --g-step: #2a2a32; --key-ink: #8b8b97;
-  --bass: #f2704f; --pad: #5b9cf6; --pad2: #8b8cf3; --flick: #f7b733; --tick: #2cc7b6; --top: #c08af8; --spark: #f06aa8; --vocal: #46c46e; --drums: #9aa5b5;
-  --on-note: #101014; --chip: #1f1f25; --mark: #f87171;
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-main, .top { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
-main { padding-bottom: 96px; }
-.top { padding-top: 28px; padding-bottom: 8px; }
-.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; color: var(--muted); margin: 0; }
-h1 { font-size: clamp(1.7rem, 4.4vw, 2.6rem); line-height: 1.15; letter-spacing: -0.02em; margin: .25em 0 .3em; }
-h2 { font-size: 1.4rem; letter-spacing: -0.01em; margin: 2.4em 0 .5em; padding-top: .4em; border-top: 1px solid var(--line); }
-h3 { font-size: 1.12rem; margin: 0; }
-h4 { font-size: .95rem; margin: 0 0 .3em; }
-p { margin: .5em 0; }
-.lede { font-size: 1.08rem; color: var(--muted); max-width: 46em; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
-.chips span { padding: 3px 11px; border: 1px solid var(--line); border-radius: 999px; font-size: .86rem; background: var(--chip); }
-.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 14px 0 0; font-size: .86rem; color: var(--muted); }
-.controls > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; max-width: 100%; }
-.toggle { display: inline-flex; flex-wrap: wrap; max-width: 100%; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--chip); vertical-align: middle; }
-.toggle button { border: 0; background: transparent; color: var(--ink); padding: 5px 11px; font: inherit; font-size: .84rem; cursor: pointer; }
-.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.three { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
-.three .card { margin: 0; }
-@media (max-width: 760px) { .two { grid-template-columns: 1fr; } .card { padding: 16px 14px; } }
-.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
-table { border-collapse: collapse; width: 100%; font-size: .92rem; }
-th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
-details { border: 1px dashed var(--line); border-radius: 10px; padding: 8px 12px; margin: 12px 0; background: var(--panel2); }
-details[open] { border-style: solid; }
-summary { cursor: pointer; font-weight: 600; color: var(--accent); }
-.dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex: none; transform: translateY(1px); }
-.layer-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
-.where { color: var(--muted); font-size: .9rem; }
-ol { padding-left: 1.35em; margin: .4em 0; }
-li { margin: .28em 0; }
-.recipe { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px; }
-.recipe ol { font-size: .93rem; }
-.recipe.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-.nn { font-weight: 650; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.mono, code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
-.callout { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; margin: 12px 0; color: var(--ink); }
-.muted { color: var(--muted); }
-.small { font-size: .9rem; }
-.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; color: var(--muted); margin: 8px 0 0; }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
-.drumgrid { border-collapse: separate; border-spacing: 3px; width: auto; font-size: .78rem; }
-.drumgrid td, .drumgrid th { padding: 0; border: 0; text-align: center; }
-.drumgrid th { width: 24px; height: 18px; color: var(--muted); font-weight: 600; text-transform: none; letter-spacing: 0; }
-.drumgrid th.rowh { width: auto; padding-right: 8px; text-align: right; white-space: nowrap; }
-.drumgrid td { width: 24px; height: 22px; border-radius: 5px; background: var(--roll-b); }
-.drumgrid td.beat { box-shadow: inset 0 0 0 1px var(--g-beat); }
-.drumgrid td.X { background: var(--drums); }
-.drumgrid td.x { background: color-mix(in srgb, var(--drums) 62%, transparent); }
-.drumgrid td.g { background: color-mix(in srgb, var(--drums) 28%, transparent); }
-.drums-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 14px; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; text-decoration-color: var(--color-rule-2); transition: color var(--dur-micro) var(--ease-out), text-decoration-color var(--dur-micro) var(--ease-out); }
+a:hover { color: var(--color-accent-text); text-decoration-color: var(--color-accent-text); }
+a:active { color: var(--color-ink); }
+h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 500); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; text-transform: lowercase; }
+h1 { max-width: 20ch; font-size: var(--text-display); line-height: 1; } h2 { max-width: 30ch; font-size: var(--text-section); line-height: 1; } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.2; }
+h4 { font-size: var(--text-md); line-height: 1.3; letter-spacing: 0; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 60ch; color: var(--color-ink-2); }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
 svg { display: block; }
-footer { color: var(--muted); font-size: .85rem; margin-top: 3em; }
-footer a { color: inherit; }
+figure { margin: 0; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
+b, strong { font-family: var(--font-display); font-weight: 500; }
+code { font-family: var(--font-outlier); font-size: 0.9em; color: var(--color-ink-2); overflow-wrap: anywhere; }
+.as-is { text-transform: none; }
+.nn { font-family: var(--font-display); font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; text-transform: none; }
+.sep { display: inline-block; width: var(--rule-hair); height: 0.85em; margin-inline: var(--space-xs); vertical-align: -0.08em; background: var(--color-rule-2); }
+.label { font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.3; color: var(--color-muted); }
+
+.skip { position: absolute; top: var(--space-sm); left: var(--space-sm); z-index: var(--z-modal); background: var(--color-paper); transform: translateY(-300%); }
+.skip:focus-visible { transform: none; }
+
+.pills { display: inline-flex; flex-wrap: wrap; gap: var(--space-2xs); }
+.pill { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: 0 var(--space-md); border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 var(--rule-pill) var(--color-rule-2); font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1; text-transform: lowercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
+.pill:hover { color: var(--color-ink); box-shadow: inset 0 0 0 var(--rule-pill) var(--color-ink); }
+.pill:active { transform: translateY(1px); }
+.pill:disabled { opacity: 0.55; cursor: not-allowed; }
+.pill[aria-pressed="true"] { background: var(--color-accent-soft); color: var(--color-ink); box-shadow: inset 0 0 0 var(--rule-pill) var(--color-accent); }
+.btn-primary { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-ink); font-family: var(--font-display); font-weight: 500; font-size: var(--text-md); line-height: 1; text-decoration: none; text-transform: lowercase; white-space: nowrap; transition: background-color var(--dur-micro) var(--ease-out); }
+.btn-primary:hover { background: var(--color-accent-deep); color: var(--color-accent-ink); }
+.btn-primary:active { transform: translateY(1px); }
+
+.shell { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); column-gap: var(--space-xl); align-items: start; }
+.rail { position: sticky; top: 0; max-height: 100dvh; overflow-y: auto; display: flex; flex-direction: column; gap: var(--space-xl); padding-block: var(--space-xl); padding-inline-end: var(--space-lg); border-inline-end: var(--rule-hair) solid var(--color-rule); scrollbar-width: thin; }
+.rail__bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); }
+.brand { display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--color-ink); text-decoration: none; border-radius: var(--radius-cell); }
+.brand:hover { color: var(--color-ink); }
+.brand__mark { width: 40px; height: 40px; flex: none; }
+.brand__word { width: 64px; height: auto; flex: none; }
+.brand__word path { fill: none; stroke: currentColor; stroke-width: 30; stroke-linecap: round; stroke-linejoin: round; }
+.kit { flex-basis: 100%; font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.3; color: var(--color-muted); }
+.rail__toggle { display: none; }
+.rail__panel { display: flex; flex-direction: column; gap: var(--space-xl); flex: 1; }
+.toc, .toc ol { list-style: none; margin: 0; padding: 0; }
+.toc { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); }
+.toc a { display: flex; align-items: baseline; gap: var(--space-xs); padding-block: var(--space-3xs); font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.35; text-transform: lowercase; color: var(--color-ink-2); text-decoration: none; }
+.toc a:hover { color: var(--color-accent-text); }
+.toc a[aria-current] { color: var(--color-accent-text); }
+.toc a .nn { text-transform: none; }
+.toc__layers { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); margin-block: var(--space-2xs) var(--space-xs); padding-inline-start: var(--space-sm); }
+.toc__layers a { color: var(--color-muted); }
+.toc__layers .swatch { flex: none; transform: translateY(-1px); }
+.rail__naming { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+.rail__theme { margin-top: auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+
+.mk-tile { fill: var(--color-brand-navy); }
+.mk-b0 { fill: var(--color-brand-coral); } .mk-b1 { fill: var(--color-brand-lavender); } .mk-b2 { fill: var(--color-brand-mint); } .mk-b3 { fill: var(--color-brand-cream); }
+.mk-face { fill: var(--color-brand-navy); }
+
+.lesson { min-width: 0; padding-block: var(--space-3xl) var(--space-4xl); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+.h1__song, .h1__sub { display: block; }
+.h1__sub { margin-top: var(--space-md); max-width: 40ch; font-size: var(--text-title); line-height: 1.2; letter-spacing: -0.01em; }
+.hero__lede { max-width: 54ch; font-size: var(--text-lead); line-height: 1.5; color: var(--color-ink-2); }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg) var(--space-xl); }
+.naming { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); }
+.hero { container: hero / inline-size; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n, 6), auto); justify-content: start; row-gap: var(--space-md); }
+.facts li { display: grid; align-content: start; gap: var(--space-2xs); padding-inline: var(--space-lg); border-inline-start: var(--rule-hair) solid var(--color-rule); }
+.facts li:first-child { padding-inline-start: 0; border-inline-start: 0; }
+.facts li:last-child { padding-inline-end: 0; }
+.facts__fig { font-family: var(--font-display); font-weight: 300; font-size: var(--text-section); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.facts__label { font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.3; color: var(--color-muted); }
+#sections { display: contents; }
+@container hero (max-width: 60rem) {
+  .facts { grid-template-columns: repeat(var(--half, 3), minmax(0, 1fr)); justify-content: stretch; column-gap: var(--space-lg); }
+  .facts li, .facts li:first-child, .facts li:last-child { padding: var(--space-sm) 0 0; border-inline-start: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+}
+@container hero (max-width: 26rem) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.strip { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+.strip__svg { width: 100%; height: auto; }
+.strip__name { fill: var(--color-ink-2); font-size: 14px; }
+.strip__sec { stroke: var(--color-rule-2); stroke-width: 1; stroke-dasharray: 2 3; }
+.strip__cap { font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.35; color: var(--color-muted); }
+.noscript { margin-top: var(--space-xl); padding: var(--space-lg); background: var(--color-paper-2); border-radius: var(--radius-card); }
+
+.sec { margin-top: var(--section-gap); }
+.sec--dna, .sec--files { margin-top: var(--section-gap-s); }
+.sec--loop, .sec--method { margin-top: var(--section-gap-l); }
+.sec__head { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-md); margin-bottom: var(--space-2xl); }
+.sec--map .sec__head { margin-bottom: var(--space-lg); }
+.fine { max-width: 70ch; font-size: var(--text-sm); line-height: 1.5; color: var(--color-muted); }
+
+.legend-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); margin-bottom: var(--space-lg); }
+.legend__lead { display: flex; align-items: center; gap: var(--space-sm); font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.35; color: var(--color-muted); }
+.legend__lead svg { width: 28px; height: 28px; flex: none; }
+.legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.35; color: var(--color-ink-2); text-transform: lowercase; }
+.legend li { display: inline-flex; align-items: center; gap: var(--space-xs); }
+[data-layer="bass"] { --c: var(--color-layer-bass); --c-on: var(--color-on-bass); }
+[data-layer="pad"] { --c: var(--color-layer-pad); --c-on: var(--color-on-pad); }
+[data-layer="pad2"] { --c: var(--color-layer-pad2); --c-on: var(--color-on-pad2); }
+[data-layer="flick"] { --c: var(--color-layer-flick); --c-on: var(--color-on-flick); }
+[data-layer="tick"] { --c: var(--color-layer-tick); --c-on: var(--color-on-tick); }
+[data-layer="top"] { --c: var(--color-layer-top); --c-on: var(--color-on-top); }
+[data-layer="spark"] { --c: var(--color-layer-spark); --c-on: var(--color-on-spark); }
+[data-layer="vocal"] { --c: var(--color-layer-vocal); --c-on: var(--color-on-vocal); }
+[data-layer="drums"] { --c: var(--color-layer-drums); --c-on: var(--color-on-drums); }
+[data-layer="muted"] { --c: var(--color-layer-muted); --c-on: var(--color-on-muted); }
+.swatch { display: inline-block; flex: none; width: 18px; height: 8px; border-radius: var(--radius-pill); background: var(--c, var(--color-layer-muted)); }
+.swatch--lg { width: 28px; height: 12px; }
+.swatch--mark { width: 8px; height: 16px; border-radius: var(--space-3xs); background: color-mix(in oklab, var(--color-mark) 18%, var(--color-paper)); }
+.swatch--hard { background: color-mix(in oklab, var(--color-mark) 42%, var(--color-paper)); }
+
+.scroll, .table-wrap { overflow-x: auto; overscroll-behavior-x: contain; }
+.scroll--map { margin-bottom: var(--space-lg); }
+.sec--map .legend-row { margin-bottom: var(--space-2xl); }
+.chart text { font-family: var(--font-display); font-weight: 500; }
+.songmap { width: 100%; height: auto; min-width: 45rem; }
+.map__sec { fill: var(--color-paper-2); } .map__sec--alt { fill: var(--color-paper-3); }
+.map__secname { fill: var(--color-ink); font-size: 14px; }
+.map__bar { fill: var(--color-muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.map__lane { fill: var(--color-ink-2); font-size: 14px; }
+.map__rest { stroke: var(--color-rule-2); stroke-width: 1.5; stroke-linecap: round; }
+.lane-bar { fill: var(--c, var(--color-layer-muted)); }
+.mark { fill: var(--color-mark); } .mark--soft { opacity: 0.18; } .mark--hard { opacity: 0.42; }
+.roll { width: 100%; height: auto; }
+.roll__w { fill: var(--color-roll-w); } .roll__b { fill: var(--color-roll-b); }
+.roll__key, .roll__bar { fill: var(--color-muted); font-size: 13px; }
+.g-bar { stroke: var(--color-grid-bar); stroke-width: 1.4; } .g-beat { stroke: var(--color-grid-beat); stroke-width: 1; } .g-step { stroke: var(--color-grid-step); stroke-width: 1; }
+.n-rect { fill: var(--c, var(--color-layer-muted)); }
+.n-label { fill: var(--c-on, var(--color-ink)); font-size: 12.5px; }
+
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+thead th { padding: 0 var(--space-md) var(--space-sm) 0; border-bottom: var(--rule-hair) solid var(--color-rule-2); text-align: left; vertical-align: bottom; font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.3; color: var(--color-muted); text-transform: lowercase; white-space: nowrap; }
+tbody th, td { padding: var(--space-sm) var(--space-md) var(--space-sm) 0; border-bottom: var(--rule-hair) solid var(--color-rule); text-align: left; vertical-align: top; }
+tbody th { font-family: var(--font-display); font-weight: 500; white-space: nowrap; }
+tbody th b { font-weight: 500; }
+
+.rows { list-style: none; margin: 0; padding: 0; counter-reset: row; }
+.rows > li { counter-increment: row; display: grid; grid-template-columns: 3rem minmax(0, 1fr); column-gap: var(--space-lg); row-gap: var(--space-2xs); padding-block: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.rows > li::before { content: counter(row); grid-row: span 2; font-family: var(--font-display); font-weight: 300; font-size: var(--text-title); line-height: 1.2; color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.rows__t { grid-column: 2; max-width: 44ch; font-family: var(--font-display); font-weight: 500; font-size: var(--text-title); line-height: 1.25; }
+.rows__b { grid-column: 2; max-width: 65ch; }
+.rows--method { column-count: 2; column-gap: var(--space-xl); }
+.rows--method > li { break-inside: avoid; grid-template-columns: 2.5rem minmax(0, 1fr); }
+.rows--method .rows__t { font-size: var(--text-lg); }
+.band { --surface: var(--color-paper-2); padding: var(--space-2xl) var(--space-xl); background: var(--color-paper-2); color: var(--color-ink); border-radius: var(--radius-card); }
+.band .sec__head { margin-bottom: var(--space-xl); }
+.rows--plan > li { grid-template-columns: 5rem minmax(0, 1fr); }
+.rows--plan > li::before { font-size: var(--text-display-s); line-height: 0.9; color: var(--color-ink-2); }
+.rows--accuracy > li { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+.rows--accuracy > li::before { content: none; }
+.rows--accuracy .rows__t { grid-column: 1; grid-row: 1 / span 2; }
+.rows--accuracy .rows__b { grid-column: 2; grid-row: 1 / span 2; }
+.files { list-style: none; margin: 0; padding: 0; column-count: 2; column-gap: var(--space-xl); }
+.files li { break-inside: avoid; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
+.files__t code { font-size: var(--text-md); color: var(--color-ink); }
+
+.setup { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); column-gap: var(--space-xl); }
+.setup__col { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: var(--space-md); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.steps { margin: 0; padding-inline-start: var(--space-lg); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+.steps li { padding-inline-start: var(--space-2xs); max-width: 68ch; }
+.steps li::marker { font-family: var(--font-display); font-weight: 500; color: var(--color-muted); }
+
+.statement { margin-top: var(--space-2xl); max-width: 42ch; font-family: var(--font-display); font-weight: 300; font-size: var(--text-title); line-height: 1.35; }
+.sec--loop .table-wrap { margin-bottom: var(--space-lg); }
+.sec--loop .fine, .sec--map .fine { margin-top: var(--space-lg); }
+
+.layer { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); margin-top: var(--space-2xl); padding-top: var(--space-2xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.layer__head { display: flex; align-items: center; gap: var(--space-md); }
+.layer__grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--space-xl); align-items: start; }
+.layer__grid > :only-child { grid-column: 1 / -1; }
+.layer__main { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
+.layer__main h4 { margin-top: var(--space-lg); }
+.layer__aside { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); padding-inline-start: var(--space-lg); border-inline-start: var(--rule-hair) solid var(--color-rule); }
+.layer__aside h4 { margin-bottom: var(--space-xs); }
+.where { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); font-family: var(--font-display); font-weight: 500; font-size: var(--text-sm); line-height: 1.4; color: var(--color-muted); }
+.answer > summary { list-style: none; }
+.answer > summary::-webkit-details-marker { display: none; }
+.pill--disclose { width: fit-content; max-width: 100%; }
+.pill__t { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.pill--disclose::after { content: ""; width: 7px; height: 7px; border-right: var(--rule-pill) solid currentColor; border-bottom: var(--rule-pill) solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform var(--dur-short) var(--ease-in-out); }
+.answer[open] > .pill--disclose::after { transform: translateY(2px) rotate(-135deg); }
+.answer[open] > .pill--disclose { background: var(--color-paper-2); box-shadow: none; }
+.answer:not([open]) > .well { display: none; }
+.well { --surface: var(--color-paper-2); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); min-width: 0; margin-top: var(--space-xs); padding: var(--space-xl); background: var(--color-paper-2); border-radius: var(--radius-card); }
+.roll-fig { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); min-width: 0; }
+.roll-fig__t { font-size: var(--text-md); line-height: 1.3; letter-spacing: 0; }
+.roll-fig .legend { color: var(--color-ink-2); }
+.recipes { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.recipe { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: var(--space-sm); }
+.drums { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+.drum { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); min-width: 0; }
+.drumgrid { width: auto; border-collapse: separate; border-spacing: var(--space-3xs); }
+.drumgrid thead th { min-width: 24px; padding: 0 0 var(--space-2xs); border: 0; text-align: center; font-size: var(--text-xs); text-transform: none; }
+.drumgrid tbody th { padding: 0 var(--space-xs) 0 0; border: 0; text-align: right; font-size: var(--text-xs); color: var(--color-muted); }
+.drumgrid td { width: 24px; height: 24px; padding: 0; border: 0; border-radius: var(--radius-cell); background: var(--color-roll-b); }
+.drumgrid thead td { background: none; }
+.drumgrid td.beat { box-shadow: inset 0 0 0 1px var(--color-grid-beat); }
+.drumgrid td.X { background: var(--color-layer-drums); }
+.drumgrid td.x { background: color-mix(in oklab, var(--color-layer-drums) 62%, var(--color-roll-b)); }
+.drumgrid td.g { background: color-mix(in oklab, var(--color-layer-drums) 30%, var(--color-roll-b)); }
+
+.colophon { display: grid; gap: var(--space-xs); margin-top: var(--section-gap); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); }
+.colophon a { color: var(--color-ink); }
+
+@media (max-width: 60rem) {
+  .shell { display: block; }
+  .rail { z-index: var(--z-sticky-nav); max-height: none; overflow: visible; gap: 0; margin-inline: calc(var(--gutter) * -1); padding: var(--space-sm) var(--gutter); background: var(--color-paper); border-inline-end: 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
+  .rail__bar { flex-wrap: nowrap; }
+  .brand__mark { width: 32px; height: 32px; }
+  .brand__word { width: 52px; }
+  .kit { flex-basis: auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rail__toggle { display: inline-flex; margin-inline-start: auto; }
+  .rail__panel { display: none; }
+  .rail[data-open] .rail__panel { display: flex; max-height: 70dvh; overflow-y: auto; padding-block: var(--space-lg) var(--space-md); }
+  .toc a { min-height: 44px; align-items: center; }
+  .lesson { padding-top: var(--space-xl); }
+  .strip { display: none; }
+  .songmap { min-width: 60rem; }
+  .layer__grid, .setup, .recipes { grid-template-columns: minmax(0, 1fr); grid-auto-flow: row; }
+  .layer__aside { padding-inline-start: 0; padding-top: var(--space-md); border-inline-start: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+  .setup { gap: var(--space-xl); }
+  .rows--method, .files { column-count: 1; }
+  .rows--accuracy > li { grid-template-columns: minmax(0, 1fr); }
+  .rows--accuracy .rows__t, .rows--accuracy .rows__b { grid-column: 1; grid-row: auto; }
+}
+@media (max-width: 40rem) {
+  .well { padding: var(--space-md); }
+  .band { padding: var(--space-xl) var(--space-md); }
+  .rows:not(.rows--accuracy) > li { grid-template-columns: 2rem minmax(0, 1fr); column-gap: var(--space-sm); }
+  .rows--plan > li { grid-template-columns: 3rem minmax(0, 1fr); }
+  .rows--plan > li::before { font-size: var(--text-2xl); }
+  tbody th { position: sticky; left: 0; z-index: var(--z-raised); background: var(--surface, var(--color-paper)); }
+}
 </style>
+<style id="mavpa-fonts">/*__FONTS__*/</style>
 </head>
 <body>
-<div class="top">
-  <p class="eyebrow" id="eyebrow"></p>
-  <h1 id="title"></h1>
-  <p class="lede" id="lede"></p>
-  <div class="chips" id="chips"></div>
-  <div class="controls">
-    <span>Note names (middle C =)
-      <span class="toggle" id="naming">
-        <button data-v="sci" aria-pressed="true">C4 · scientific</button><button data-v="fl" aria-pressed="false">C5 · FL</button><button data-v="abl" aria-pressed="false">C3 · Ableton / GarageBand</button>
-      </span>
-    </span>
-    <span>Theme <span class="toggle" id="theme"><button data-v="auto" aria-pressed="true">Auto</button><button data-v="light" aria-pressed="false">Light</button><button data-v="dark" aria-pressed="false">Dark</button></span></span>
-  </div>
+<a class="skip pill" href="#main">skip to the lesson</a>
+<div class="container shell">
+  <header class="rail" id="rail">
+    <div class="rail__bar">
+      <a class="brand" href="#top" aria-label="mavpa, back to the top of the lesson">
+        <svg class="brand__mark" viewBox="0 0 256 256" width="40" height="40" role="img" aria-label="mavpa"><defs><clipPath id="mrb0"><rect x="0" y="48" width="256" height="34"/></clipPath><clipPath id="mrb1"><rect x="0" y="90" width="256" height="34"/></clipPath><clipPath id="mrb2"><rect x="0" y="132" width="256" height="34"/></clipPath><clipPath id="mrb3"><rect x="0" y="174" width="256" height="34"/></clipPath></defs><rect class="mk-tile" width="256" height="256" rx="56"/><g transform="translate(20 20) scale(.84375)"><path class="mk-b0" clip-path="url(#mrb0)" d="M48 128a80 80 0 1 1 160 0a80 80 0 1 1 -160 0ZM14 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0ZM182 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0Z"/><path class="mk-b1" clip-path="url(#mrb1)" d="M48 128a80 80 0 1 1 160 0a80 80 0 1 1 -160 0ZM14 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0ZM182 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0Z"/><path class="mk-b2" clip-path="url(#mrb2)" d="M48 128a80 80 0 1 1 160 0a80 80 0 1 1 -160 0ZM14 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0ZM182 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0Z"/><path class="mk-b3" clip-path="url(#mrb3)" d="M48 128a80 80 0 1 1 160 0a80 80 0 1 1 -160 0ZM14 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0ZM182 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0Z"/><g class="mk-face"><circle cx="104" cy="118" r="28"/><circle cx="152" cy="118" r="28"/><ellipse cx="128" cy="166" rx="50" ry="34"/></g><circle class="mk-b1" cx="106" cy="110" r="10"/><circle class="mk-b1" cx="150" cy="110" r="10"/></g></svg>
+        <svg class="brand__word" viewBox="0 0 633 256" width="64" height="26" aria-hidden="true"><path d="M19.0 170V122a34 34 0 0 1 68 0V170M87.0 122a34 34 0 0 1 68 0V170M199.0 122a34 34 0 1 1 68 0a34 34 0 1 1 -68 0ZM267.0 88V170M307.0 88L343.0 158L379.0 88M419.0 88V234M419.0 122a34 34 0 1 1 68 0a34 34 0 1 1 -68 0ZM531.0 122a34 34 0 1 1 68 0a34 34 0 1 1 -68 0ZM599.0 88V170"/></svg>
+      </a>
+      <span class="kit" id="eyebrow"></span>
+      <button class="pill rail__toggle" id="rail-toggle" type="button" aria-expanded="false" aria-controls="rail-panel">contents</button>
+    </div>
+    <div class="rail__panel" id="rail-panel">
+      <div class="rail__naming">
+        <span class="label" id="naming-label">middle C is</span>
+        <div class="pills" id="naming" role="group" aria-labelledby="naming-label"><button class="pill" type="button" data-v="sci" aria-pressed="true"><span class="nn">C4</span> scientific</button><button class="pill" type="button" data-v="fl" aria-pressed="false"><span class="nn">C5</span> fl studio</button><button class="pill" type="button" data-v="abl" aria-pressed="false"><span class="nn">C3</span> ableton, garageband</button></div>
+      </div>
+      <nav aria-label="lesson contents"><ol class="toc" id="toc"></ol></nav>
+      <div class="rail__theme">
+        <span class="label" id="theme-label">theme</span>
+        <div class="pills" id="theme" role="group" aria-labelledby="theme-label"><button class="pill" type="button" data-v="auto" aria-pressed="true">auto</button><button class="pill" type="button" data-v="light" aria-pressed="false">light</button><button class="pill" type="button" data-v="dark" aria-pressed="false">dark</button></div>
+      </div>
+    </div>
+  </header>
+  <main class="lesson" id="main">
+    <section class="hero" id="top" aria-labelledby="title">
+      <h1 id="title"></h1>
+      <p class="hero__lede" id="lede"></p>
+      <figure class="strip"><div id="strip"></div><figcaption class="strip__cap">the song in its four stems, bar by bar; every layer has its own lane in the <a href="#map">song map</a></figcaption></figure>
+      <div class="hero__actions">
+        <a class="btn-primary" href="#setup">set up your session</a>
+        <div class="naming">
+          <span class="label" id="naming-label-hero">middle C is</span>
+          <div class="pills naming-mirror" role="group" aria-labelledby="naming-label-hero"><button class="pill" type="button" data-v="sci" aria-pressed="true"><span class="nn">C4</span> scientific</button><button class="pill" type="button" data-v="fl" aria-pressed="false"><span class="nn">C5</span> fl studio</button><button class="pill" type="button" data-v="abl" aria-pressed="false"><span class="nn">C3</span> ableton, garageband</button></div>
+        </div>
+      </div>
+      <ul class="facts" id="chips" aria-label="the song in figures"></ul>
+    </section>
+    <noscript><p class="noscript">This guide draws its song map, tables and piano rolls with JavaScript. Turn JavaScript on to read it, or open README.txt in the kit folder for the project settings.</p></noscript>
+    <div id="sections"></div>
+    <footer class="colophon" id="colophon"></footer>
+  </main>
 </div>
-<main id="main"></main>
 
 <script>
 const DATA = /*__DATA__*/null;
+const $ = (s) => document.querySelector(s);
 const PC = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
 const OFF = { sci: 0, fl: 1, abl: -1 };
 const SPB = DATA.grid.spb;
-let naming = 'sci';
-function nn(m) { return PC[((m % 12) + 12) % 12] + (Math.floor(m / 12) - 1 + OFF[naming]); }
+const ROLL_W = 940, MAP_W = 960;
+const LAYERS = ['bass', 'pad', 'pad2', 'flick', 'tick', 'top', 'spark', 'vocal', 'drums', 'muted'];
+const STEMS = [['drums', 'drums'], ['bass', 'bass'], ['pad', 'music'], ['vocal', 'vocals']];
+const SEP = '<span class="sep" aria-hidden="true"></span><span class="visually-hidden">, </span>';
 const STEPNAME = Array.from({ length: SPB }, (_, i) => `${Math.floor(i / 4) + 1}${['', 'e', '&', 'a'][i % 4]}`);
-const NOTE_FG = { flick: '#1c1b1a', tick: '#ffffff' };
+const HEAD = 'M48 128a80 80 0 1 1 160 0a80 80 0 1 1 -160 0ZM14 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0ZM182 124a30 30 0 1 1 60 0a30 30 0 1 1 -60 0Z';
+let naming = 'sci';
+const NOTE_RE = /(^|[^\p{L}\p{N}_♯♭#])([A-G](?:[#♯b♭])?(?:-?\d)?)(?=$|[^\p{L}\p{N}_♯♭#])/gu;
+function keep(html) { return String(html).replace(/(<[^>]*>)|([^<]+)/g, (m, tag, text) => tag || text.replace(NOTE_RE, (_, pre, note) => `${pre}<span class="as-is">${note}</span>`)); }
+function lowerKeep(s) { s = String(s ?? ''); let out = '', last = 0; for (const m of s.matchAll(NOTE_RE)) { const i = m.index + m[1].length; out += s.slice(last, i).toLowerCase() + m[2]; last = i + m[2].length; } return out + s.slice(last).toLowerCase(); }
+const stemOf = (c) => { c = lay(c); return c === 'muted' ? null : ['drums', 'bass', 'vocal'].includes(c) ? c : 'pad'; };
 
-function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function lay(c) { return LAYERS.includes(c) ? c : 'muted'; }
+function nn(m) { return PC[((m % 12) + 12) % 12] + (Math.floor(m / 12) - 1 + OFF[naming]); }
+function esc(s) { return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function txt(s) { return esc(s).replace(/ · /g, SEP); }
 function noteNum(t) {
   if (/^\d+$/.test(t)) return +t;
   const m = /^([A-Ga-g])([#b♯♭]*)(-?\d+)$/.exec(t);
@@ -127,159 +418,242 @@ function span(ms) { ms = [].concat(ms); return `<span class="nn" data-m="${ms.jo
 function md(s) {
   if (s === null || s === undefined) return '';
   let h = esc(s);
-  h = h.replace(/`([^`]+)`/g, (_, x) => `<span class="mono">${x}</span>`);
-  h = h.replace(/\{\{([^}]+)\}\}/g, (_, x) => {
-    const parts = x.trim().split(/\s+/), ms = parts.map(noteNum);
-    return ms.some(v => v === null) ? x : span(ms);
-  });
-  return h.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/\*([^*\n]+)\*/g, '<i>$1</i>');
+  h = h.replace(/`([^`]+)`/g, (_, x) => `<code>${x}</code>`);
+  h = h.replace(/\{\{([^}]+)\}\}/g, (_, x) => { const ms = x.trim().split(/\s+/).map(noteNum); return ms.some((v) => v === null) ? x : span(ms); });
+  h = h.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/\*([^*\n]+)\*/g, '<i>$1</i>');
+  return h.replace(/ · /g, SEP);
 }
-function ol(items) { return items && items.length ? `<ol>${items.map(i => `<li>${md(i)}</li>`).join('')}</ol>` : ''; }
-function table(t) {
-  return `<div class="scroll"><table><thead><tr>${t.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>` +
-    t.rows.map(r => `<tr>${r.map(c => `<td>${md(c)}</td>`).join('')}</tr>`).join('') + '</tbody></table></div>';
+function lead(s) {
+  const m = /^\*\*([^*]+)\*\*\s*([\s\S]*)$/.exec(String(s ?? ''));
+  return m ? { t: m[1].trim().replace(/[:.]$/, ''), b: m[2] } : { t: '', b: String(s ?? '') };
+}
+function steps(items) { return items && items.length ? `<ol class="steps">${items.map((i) => `<li>${md(i)}</li>`).join('')}</ol>` : ''; }
+function rows(items, cls, tag = 'ol') {
+  return `<${tag} class="rows ${cls}">` + (items || []).map((it) => { const { t, b } = lead(it); return `<li>${t ? `<p class="rows__t">${md(t)}</p>` : ''}${b ? `<p class="rows__b">${md(b)}</p>` : ''}</li>`; }).join('') + `</${tag}>`;
+}
+function table(t, label) {
+  return `<div class="table-wrap" role="region" tabindex="0" aria-label="${esc(label || 'table')}"><table><thead><tr>${t.head.map((h) => `<th scope="col">${keep(txt(h))}</th>`).join('')}</tr></thead><tbody>` +
+    t.rows.map((r) => `<tr>${r.map((c, i) => (i === 0 ? `<th scope="row">${md(c)}</th>` : `<td>${md(c)}</td>`)).join('')}</tr>`).join('') + '</tbody></table></div>';
+}
+function markSVG(p, size) {
+  const bands = [48, 90, 132, 174];
+  return `<svg viewBox="0 0 256 256" width="${size}" height="${size}" role="img" aria-label="mavpa"><defs>${bands.map((y, i) => `<clipPath id="${p}b${i}"><rect x="0" y="${y}" width="256" height="34"/></clipPath>`).join('')}</defs><rect class="mk-tile" width="256" height="256" rx="56"/><g transform="translate(20 20) scale(.84375)">${bands.map((_, i) => `<path class="mk-b${i}" clip-path="url(#${p}b${i})" d="${HEAD}"/>`).join('')}<g class="mk-face"><circle cx="104" cy="118" r="28"/><circle cx="152" cy="118" r="28"/><ellipse cx="128" cy="166" rx="50" ry="34"/></g><circle class="mk-b1" cx="106" cy="110" r="10"/><circle class="mk-b1" cx="150" cy="110" r="10"/></g></svg>`;
+}
+function facts(chips) {
+  const out = [];
+  for (const chip of chips || []) for (const part of String(chip).split(' · ')) {
+    const p = part.trim();
+    if (!p) continue;
+    const m = /^(\d[\d/:.,]*)[\s-]*(.*)$/.exec(p);
+    if (m) out.push({ fig: m[1].replace(/[.,]$/, ''), label: m[2] });
+    else { const i = p.indexOf(', '); out.push(i > 0 ? { fig: p.slice(0, i), label: p.slice(i + 2), word: true } : { fig: p, label: '', word: true }); }
+  }
+  return out;
 }
 
 function roll(opt) {
-  const cell = opt.cell || 10, row = opt.row || 12, keyW = 46, head = 18;
-  const steps = opt.bars * SPB, W = keyW + steps * cell + 1, H = head + (opt.hi - opt.lo + 1) * row + 1;
-  let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(opt.title || 'piano roll')}">`;
+  const keyW = 60, head = 26, row = Math.max(opt.row || 12, 18);
+  const steps = opt.bars * SPB;
+  const cell = Math.max(7, Math.min(opt.cell || 10, (ROLL_W - keyW) / steps));
+  const W = Math.ceil(keyW + steps * cell + 2), H = head + (opt.hi - opt.lo + 1) * row + 1;
+  let s = `<svg class="chart roll" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="max-width:${W}px;min-width:${Math.round(W * 0.88)}px" role="img" aria-label="${esc(opt.title || 'piano roll')}">`;
   for (let p = opt.hi; p >= opt.lo; p--) {
     const y = head + (opt.hi - p) * row, blk = [1, 3, 6, 8, 10].includes(((p % 12) + 12) % 12);
-    s += `<rect x="${keyW}" y="${y}" width="${steps * cell}" height="${row}" fill="var(${blk ? '--roll-b' : '--roll-w'})"/>`;
-    s += `<text x="${keyW - 6}" y="${y + row - 3}" font-size="9" text-anchor="end" fill="var(--key-ink)">${nn(p)}</text>`;
+    s += `<rect class="${blk ? 'roll__b' : 'roll__w'}" x="${keyW}" y="${y}" width="${(steps * cell).toFixed(1)}" height="${row}"/>`;
+    s += `<text class="roll__key" x="${keyW - 8}" y="${y + row - 5}" text-anchor="end">${nn(p)}</text>`;
   }
   for (let k = 0; k <= steps; k++) {
-    const x = keyW + k * cell, bar = k % SPB === 0, beat = k % 4 === 0;
-    s += `<line x1="${x}" y1="${head}" x2="${x}" y2="${H}" stroke="var(${bar ? '--g-bar' : beat ? '--g-beat' : '--g-step'})" stroke-width="${bar ? 1.3 : 1}"/>`;
+    const x = (keyW + k * cell).toFixed(1), bar = k % SPB === 0, beat = k % 4 === 0;
+    s += `<line class="${bar ? 'g-bar' : beat ? 'g-beat' : 'g-step'}" x1="${x}" y1="${head}" x2="${x}" y2="${H}"/>`;
   }
-  for (let b = 0; b < opt.bars; b++) {
-    s += `<text x="${keyW + b * SPB * cell + 3}" y="12" font-size="10" fill="var(--muted)">${esc(opt.labels[b] || '')}</text>`;
-  }
+  for (let b = 0; b < opt.bars; b++) s += `<text class="roll__bar" x="${(keyW + b * SPB * cell + 4).toFixed(1)}" y="${head - 8}">${esc(opt.labels[b] || '')}</text>`;
   for (const n of opt.notes) {
     if (n.p < opt.lo || n.p > opt.hi) continue;
     const x = keyW + ((n.b - 1) * SPB + n.s) * cell + 1, y = head + (opt.hi - n.p) * row + 1, w = Math.max(3, n.l * cell - 2);
-    s += `<rect x="${x}" y="${y}" width="${w}" height="${row - 2}" rx="2.5" fill="var(--${n.c})"><title>${nn(n.p)}</title></rect>`;
-    if (w >= 28) s += `<text x="${x + 3}" y="${y + row - 4}" font-size="8.5" fill="${NOTE_FG[n.c] || 'var(--on-note)'}">${nn(n.p)}</text>`;
+    s += `<rect class="n-rect" data-layer="${lay(n.c)}" x="${x.toFixed(1)}" y="${y}" width="${w.toFixed(1)}" height="${row - 2}" rx="3"><title>${nn(n.p)}</title></rect>`;
+    if (w >= 34) s += `<text class="n-label" data-layer="${lay(n.c)}" x="${(x + 4).toFixed(1)}" y="${y + row - 6}">${nn(n.p)}</text>`;
   }
   return s + '</svg>';
 }
-function rollBlock(r) {
-  const legend = r.legend && r.legend.length > 1 ? `<div class="legend">${r.legend.map(l => `<span><span class="dot" style="background:var(--${l.c})"></span>${esc(l.label)}</span>`).join('')}</div>` : '';
-  return (r.title ? `<h4 style="margin-top:10px">${esc(r.title)}</h4>` : '') + `<div class="scroll" style="margin-top:8px">${roll(r)}</div>` + legend;
+function rollBlock(r, lvl) {
+  const legend = r.legend && r.legend.length > 1 ? `<ul class="legend">${r.legend.map((l) => `<li><span class="swatch" data-layer="${lay(l.c)}" aria-hidden="true"></span>${keep(txt(l.label))}</li>`).join('')}</ul>` : '';
+  return `<figure class="roll-fig">${r.title ? `<h${lvl} class="roll-fig__t">${keep(txt(r.title))}</h${lvl}>` : ''}<div class="scroll" role="region" tabindex="0" aria-label="${esc(r.title || 'piano roll')}">${roll(r)}</div>${legend}</figure>`;
 }
 function drumGrids(d) {
-  let html = '<div class="drums-wrap">';
-  for (const inst of d.instruments) {
-    let t = `<div><h4>${esc(inst.label)}</h4><div class="scroll"><table class="drumgrid"><tr><th class="rowh"></th>${STEPNAME.map(s => `<th>${s}</th>`).join('')}</tr>`;
-    for (const r of inst.rows) {
-      t += `<tr><th class="rowh">${esc(r.label)}</th>${[...r.steps.padEnd(SPB, '.')].slice(0, SPB).map((ch, i) => `<td class="${'Xxg'.includes(ch) ? ch : ''}${i % 4 === 0 ? ' beat' : ''}" title="${STEPNAME[i]}"></td>`).join('')}</tr>`;
-    }
-    html += t + '</table></div></div>';
-  }
-  return html + '</div>';
+  return '<div class="drums">' + d.instruments.map((inst) => `<div class="drum"><h4>${keep(txt(inst.label))}</h4><div class="scroll" role="region" tabindex="0" aria-label="${esc(inst.label)} pattern"><table class="drumgrid"><thead><tr><td></td>${STEPNAME.map((s) => `<th scope="col">${esc(s)}</th>`).join('')}</tr></thead><tbody>` +
+    inst.rows.map((r) => `<tr><th scope="row">${txt(r.label)}</th>${[...String(r.steps).padEnd(SPB, '.')].slice(0, SPB).map((ch, i) => `<td class="${'Xxg'.includes(ch) ? ch : ''}${i % 4 === 0 ? ' beat' : ''}" title="${STEPNAME[i]}"></td>`).join('')}</tr>`).join('') + '</tbody></table></div></div>').join('') + '</div>';
 }
-
+let measureCtx = null;
+function textWidth(t, px) {
+  try {
+    measureCtx = measureCtx || document.createElement('canvas').getContext('2d');
+    measureCtx.font = `${px}px ${getComputedStyle(document.body).fontFamily}`;
+    return measureCtx.measureText(t).width;
+  } catch (e) { return t.length * px * 0.56; }
+}
 function songMap(m) {
-  const bw = 6.2, lw = 104, top = 44, lh = 17, nb = m.nb;
-  const W = lw + nb * bw + 4, H = top + m.lanes.length * lh + 8;
-  let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="song map">`;
+  const W = MAP_W, lw = 152, top = 60, lh = 26, nb = m.nb;
+  const bw = (W - lw - 6) / nb, H = top + m.lanes.length * lh + 6;
+  const X = (bar) => lw + (bar - 1) * bw;
+  let s = `<svg class="chart songmap" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="song map: ${nb} bars, one lane per layer, the sections above">`;
   m.sections.forEach((sec, i) => {
-    const x = lw + (sec.a - 1) * bw, w = (sec.b - sec.a + 1) * bw;
-    s += `<rect x="${x}" y="2" width="${w}" height="22" fill="var(${i % 2 ? '--panel2' : '--roll-b'})" stroke="var(--line)"/>`;
-    if (w > 30) s += `<text x="${x + 4}" y="17" font-size="10.5" fill="var(--ink)">${esc(sec.name)}</text>`;
-    if (w > 24 && sec.name) s += `<text x="${x + 1}" y="37" font-size="9" fill="var(--muted)">${sec.a}</text>`;
+    const x = X(sec.a), w = (sec.b - sec.a + 1) * bw;
+    s += `<rect class="map__sec${i % 2 ? ' map__sec--alt' : ''}" x="${(x + 0.5).toFixed(1)}" y="2" width="${Math.max(1, w - 1).toFixed(1)}" height="28" rx="5"/>`;
+    if (sec.name && w > textWidth(lowerKeep(sec.name), 14) + 10) s += `<text class="map__secname" x="${(x + 6).toFixed(1)}" y="21">${esc(lowerKeep(sec.name))}</text>`;
+    if (sec.name && w > 18) s += `<text class="map__bar" x="${(x + 1).toFixed(1)}" y="47">${sec.a}</text>`;
   });
-  for (const mk of m.marks) for (const b of mk.bars) s += `<rect x="${lw + (b - 1) * bw}" y="${top - 4}" width="${bw}" height="${H - top}" fill="var(--mark)" opacity="${mk.strength === 'hard' ? .5 : .22}"/>`;
+  for (const mk of m.marks) for (const b of mk.bars) s += `<rect class="mark mark--${mk.strength === 'hard' ? 'hard' : 'soft'}" x="${X(b).toFixed(1)}" y="${top - 6}" width="${Math.max(bw, 2).toFixed(1)}" height="${H - top + 4}"><title>${esc(mk.label)}, bar ${b}</title></rect>`;
   m.lanes.forEach((ln, i) => {
-    const y = top + i * lh;
-    s += `<text x="${lw - 8}" y="${y + 12}" font-size="10" text-anchor="end" fill="var(--ink)">${esc(ln.name)}</text>`;
-    s += `<rect x="${lw}" y="${y + 2}" width="${nb * bw}" height="${lh - 5}" fill="var(--roll-b)" opacity=".6"/>`;
-    for (const [a, b] of ln.r) s += `<rect x="${lw + (a - 1) * bw}" y="${y + 2}" width="${(b - a + 1) * bw}" height="${lh - 5}" rx="2" fill="var(--${ln.c})" opacity=".9"/>`;
+    const y = top + i * lh, mid = y + lh / 2;
+    s += `<text class="map__lane" x="${lw - 12}" y="${mid + 5}" text-anchor="end">${esc(lowerKeep(ln.name))}</text>`;
+    s += `<line class="map__rest" x1="${lw}" y1="${mid}" x2="${W - 6}" y2="${mid}"/>`;
+    for (const [a, b] of ln.r) s += `<rect class="lane-bar" data-layer="${lay(ln.c)}" x="${X(a).toFixed(1)}" y="${y + 5}" width="${Math.max(2, (b - a + 1) * bw - 1).toFixed(1)}" height="${lh - 10}" rx="4"><title>${esc(ln.name)}, bars ${a} to ${b}</title></rect>`;
+  });
+  return s + '</svg>';
+}
+function strip(m) {
+  const sets = { drums: new Set(), bass: new Set(), pad: new Set(), vocal: new Set() };
+  for (const ln of m.lanes) { const st = stemOf(ln.c); if (st) for (const [a, b] of ln.r) for (let x = a; x <= b; x++) sets[st].add(x); }
+  const W = MAP_W, lw = 84, lh = 18, nb = m.nb, bw = (W - lw - 6) / nb, H = 4 * lh + 2;
+  const X = (bar) => lw + (bar - 1) * bw;
+  let s = `<svg class="chart strip__svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="the song in its four stems: where drums, bass, music and vocals play across ${nb} bars">`;
+  for (const sec of m.sections) if (sec.a > 1 && sec.name) s += `<line class="strip__sec" x1="${X(sec.a).toFixed(1)}" y1="0" x2="${X(sec.a).toFixed(1)}" y2="${H}"/>`;
+  STEMS.forEach(([key, name], i) => {
+    const y = i * lh, mid = y + lh / 2, bars = [...sets[key]].sort((p, q) => p - q);
+    s += `<text class="strip__name" x="${lw - 12}" y="${mid + 5}" text-anchor="end">${name}</text><line class="map__rest" x1="${lw}" y1="${mid}" x2="${W - 6}" y2="${mid}"/>`;
+    for (let j = 0; j < bars.length;) { let k = j; while (k + 1 < bars.length && bars[k + 1] === bars[k] + 1) k++; s += `<rect class="lane-bar" data-layer="${key}" x="${X(bars[j]).toFixed(1)}" y="${y + 4}" width="${Math.max(2, (bars[k] - bars[j] + 1) * bw - 1).toFixed(1)}" height="${lh - 8}" rx="4"/>`; j = k + 1; }
   });
   return s + '</svg>';
 }
 function sectionTable(m) {
-  const fmt = t => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
-  let h = '<thead><tr><th>Section</th><th>DAW bars</th><th>Starts (kit audio)</th><th>Starts (original file)</th></tr></thead><tbody>';
-  for (const sec of m.sections) if (sec.name) h += `<tr><td><b>${esc(sec.name)}</b></td><td>${sec.a}${sec.b !== sec.a ? '–' + sec.b : ''}</td><td>${fmt(sec.t_daw)}</td><td>${fmt(sec.t_orig)}</td></tr>`;
-  return `<div class="scroll" style="margin-top:12px"><table>${h}</tbody></table></div>`;
+  const fmt = (t) => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart(4, '0')}`;
+  const body = m.sections.filter((s) => s.name).map((s) => `<tr><th scope="row">${txt(s.name)}</th><td>${s.a}${s.b !== s.a ? ` to ${s.b}` : ''}</td><td>${fmt(s.t_daw)}</td><td>${fmt(s.t_orig)}</td></tr>`).join('');
+  return `<div class="table-wrap" role="region" tabindex="0" aria-label="sections"><table><thead><tr><th scope="col">Section</th><th scope="col">DAW bars</th><th scope="col">Starts (kit audio)</th><th scope="col">Starts (original file)</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function card(c) {
-  let h = `<div class="card" id="l-${esc(c.id)}"><div class="layer-head"><span class="dot" style="background:var(--${c.color})"></span><h3>${md(c.title)}</h3><span class="where">${md(c.where)}</span></div>`;
-  if (c.about) h += `<p>${md(c.about)}</p>`;
-  if (c.list && c.list.length) h += ol(c.list);
-  if (c.monkey && c.monkey.length) h += `<h4>Monkey it</h4>${ol(c.monkey)}`;
-  const a = c.answer;
+  const L = lay(c.color), a = c.answer;
+  const where = String(c.where || '').split(' · ').filter(Boolean);
+  let aside = '';
+  if (where.length) aside += `<ul class="where">${where.map((w) => `<li>${md(w)}</li>`).join('')}</ul>`;
+  if (c.sound) aside += `<div class="sound"><h4>Sound</h4><p>${md(c.sound)}</p></div>`;
+  let main = '';
+  if (c.about) main += `<p>${md(c.about)}</p>`;
+  if (c.list && c.list.length) main += steps(c.list);
+  if (c.monkey && c.monkey.length) main += `<h4>Monkey it</h4>${steps(c.monkey)}`;
+  let h = `<article class="layer" id="l-${esc(c.id)}" data-layer="${L}"><header class="layer__head"><span class="swatch swatch--lg" data-layer="${L}" aria-hidden="true"></span><h3>${keep(md(c.title))}</h3></header>`;
+  h += `<div class="layer__grid">${main ? `<div class="layer__main">${main}</div>` : ''}${aside ? `<aside class="layer__aside">${aside}</aside>` : ''}</div>`;
   if (a && (a.rolls.length || a.tables.length || a.drums || a.text)) {
-    h += `<details><summary>${esc(a.summary)}</summary>`;
+    h += `<details class="answer"><summary class="pill pill--disclose" title="${esc(a.summary)}"><span class="pill__t">${keep(txt(a.summary))}</span></summary><div class="well">`;
     if (a.intro) h += `<p>${md(a.intro)}</p>`;
-    for (const t of a.tables) h += table(t);
-    for (const r of a.rolls) h += rollBlock(r);
+    for (const t of a.tables) h += table(t, `${c.title} answer`);
+    for (const r of a.rolls) h += rollBlock(r, 4);
     if (a.drums) h += drumGrids(a.drums);
     if (a.text) h += `<p>${md(a.text)}</p>`;
-    if (a.note) h += `<p class="muted small">${md(a.note)}</p>`;
-    h += '</details>';
+    if (a.note) h += `<p class="fine">${md(a.note)}</p>`;
+    h += '</div></details>';
   }
-  const R = c.recipes || {}, cols = [['fl', 'FL Studio'], ['ableton', 'Ableton Live'], ['garageband', 'GarageBand']].filter(([k]) => R[k] && R[k].length);
-  if (cols.length) h += `<div class="recipe cols">${cols.map(([k, t]) => `<div><h4>${t}</h4>${ol(R[k])}</div>`).join('')}</div>`;
-  if (c.sound) h += `<div class="recipe"><h4>Sound</h4><p>${md(c.sound)}</p></div>`;
-  return h + '</div>';
+  const R = c.recipes || {}, cols = [['fl', 'FL Studio recipe'], ['ableton', 'Ableton recipe'], ['garageband', 'GarageBand recipe']].filter(([k]) => R[k] && R[k].length);
+  if (cols.length) h += `<div class="recipes">${cols.map(([k, t]) => `<div class="recipe"><h4>${t}</h4>${steps(R[k])}</div>`).join('')}</div>`;
+  return h + '</article>';
 }
 
 function render() {
   const D = DATA;
-  document.getElementById('eyebrow').textContent = D.eyebrow;
-  document.getElementById('title').innerHTML = md(D.title);
-  document.getElementById('lede').innerHTML = md(D.lede);
-  document.getElementById('chips').innerHTML = D.chips.map(c => `<span>${md(c)}</span>`).join('');
-  let n = 0, h = '';
-  const sec = (id, title) => `<h2 id="${id}">${++n} · ${md(title)}</h2>`;
-  h += sec('dna', "The song's DNA (read this first)") + `<div class="card">${ol(D.dna)}</div>`;
-  h += sec('setup', 'Set up your session') + '<div class="three">' +
-    [['FL Studio', D.setup.fl], ['Ableton Live', D.setup.ableton], ['GarageBand', D.setup.garageband]].map(([t, l]) => `<div class="card"><h3>${t}</h3>${ol(l)}</div>`).join('') + '</div>';
-  const marks = D.map.marks.filter(m => m.bars.length);
-  h += sec('map', 'Song map') + `<div class="card"><div class="scroll">${songMap(D.map)}</div>` +
-    (marks.length ? `<div class="legend">${marks.map(m => `<span><span class="dot" style="background:var(--mark);opacity:${m.strength === 'hard' ? 1 : .55}"></span>${esc(m.label)}</span>`).join('')}</div>` : '') +
-    sectionTable(D.map) + (D.map.note ? `<p class="muted small">${md(D.map.note)}</p>` : '') + '</div>';
-  for (const hm of D.harmony) {
-    h += sec('loop', hm.title) + '<div class="card">' + (hm.intro ? `<p>${md(hm.intro)}</p>` : '') + table(hm.table);
-    if (hm.rolls.length) h += `<details><summary>${esc(hm.rolls_summary)}</summary>${hm.rolls.map(rollBlock).join('')}</details>`;
-    if (hm.note) h += `<p class="muted small">${md(hm.note)}</p>`;
-    if (hm.callout) h += `<p class="callout">${md(hm.callout)}</p>`;
-    h += '</div>';
-  }
-  h += sec('layers', 'Every layer — monkey it, then check') + `<p class="muted">${md(D.cards_intro)}</p>` + D.cards.map(card).join('');
-  h += sec('method', 'The monkey method (works for any track)') + `<div class="card">${ol(D.method)}</div>`;
-  h += sec('plan', 'Practice plan') + `<div class="card">${ol(D.plan)}</div>`;
-  h += sec('files', "What's in the kit") + `<div class="card">${ol(D.files)}</div>`;
-  h += sec('accuracy', 'How sure is this?') + `<div class="card">${ol(D.accuracy)}</div>`;
-  h += `<footer>${md(D.footer)} · Made with <a href="https://github.com/WorldInnovationsDepartment/mavpa">mavpa</a>.</footer>`;
-  const open = [...document.querySelectorAll('details')].map(d => d.open);
-  document.getElementById('main').innerHTML = h;
-  document.querySelectorAll('details').forEach((d, i) => { if (open[i]) d.open = true; });
+  const t = String(D.title || ''), k = t.indexOf(' — ');
+  $('#title').innerHTML = k > 0 ? `<span class="h1__song">${keep(md(t.slice(0, k)))}</span> <span class="h1__sub">${keep(md(t.slice(k + 3)))}</span>` : `<span class="h1__song">${keep(md(t))}</span>`;
+  $('#eyebrow').textContent = String(D.eyebrow || '').split(' · ')[0];
+  $('#strip').innerHTML = strip(D.map);
+  $('#lede').innerHTML = md(D.lede);
+  const F = facts(D.chips), chips = $('#chips');
+  chips.style.setProperty('--n', F.length); chips.style.setProperty('--half', Math.ceil(F.length / 2));
+  chips.innerHTML = F.map((f) => `<li${f.word ? ' class="is-word"' : ''}><span class="facts__fig">${md(f.fig)}</span>${f.label ? `<span class="facts__label">${md(f.label)}</span>` : ''}</li>`).join('');
+  const head = (id, title, line) => `<header class="sec__head"><h2 id="${id}-h">${title}</h2>${line ? `<p class="lead">${line}</p>` : ''}</header>`;
+  let h = '';
+  const marks = D.map.marks.filter((mk) => mk.bars.length);
+  h += `<section class="sec sec--dna" id="dna" aria-labelledby="dna-h">${head('dna', 'The song’s DNA (read this first)')}${rows(D.dna, 'rows--dna')}</section>`;
+  const setups = [['FL Studio', D.setup.fl], ['Ableton Live', D.setup.ableton], ['GarageBand', D.setup.garageband]].filter(([, l]) => l && l.length);
+  h += `<section class="sec sec--setup" id="setup" aria-labelledby="setup-h">${head('setup', 'Set up your session')}<div class="setup">${setups.map(([n, l]) => `<div class="setup__col"><h3>${n}</h3>${steps(l)}</div>`).join('')}</div></section>`;
+  h += `<section class="sec sec--map" id="map" aria-labelledby="map-h">${head('map', 'Song map')}<div class="scroll scroll--map" role="region" tabindex="0" aria-label="song map">${songMap(D.map)}</div>` +
+    `<div class="legend-row"><p class="legend__lead">${markSVG('ml', 28)}<span>colour is the stem a part lives in, the same four bands as the mavpa mark</span></p>` +
+    `<ul class="legend">${STEMS.map(([l, n]) => `<li><span class="swatch" data-layer="${l}" aria-hidden="true"></span>${n}</li>`).join('')}${marks.map((mk) => `<li><span class="swatch swatch--mark${mk.strength === 'hard' ? ' swatch--hard' : ''}" aria-hidden="true"></span>${keep(txt(mk.label))}</li>`).join('')}</ul></div>` +
+    `${sectionTable(D.map)}${D.map.note ? `<p class="fine">${md(D.map.note)}</p>` : ''}</section>`;
+  D.harmony.forEach((hm, i) => {
+    const id = i ? `loop-${i + 1}` : 'loop';
+    h += `<section class="sec sec--loop" id="${id}" aria-labelledby="${id}-h">${head(id, keep(md(hm.title)), hm.intro ? md(hm.intro) : '')}${table(hm.table, hm.title)}`;
+    if (hm.rolls.length) h += `<details class="answer"><summary class="pill pill--disclose" title="${esc(hm.rolls_summary)}"><span class="pill__t">${txt(hm.rolls_summary)}</span></summary><div class="well">${hm.rolls.map((r) => rollBlock(r, 3)).join('')}</div></details>`;
+    if (hm.note) h += `<p class="fine">${md(hm.note)}</p>`;
+    if (hm.callout) h += `<p class="statement">${md(hm.callout)}</p>`;
+    h += '</section>';
+  });
+  h += `<section class="sec sec--layers" id="layers" aria-labelledby="layers-h">${head('layers', 'Every layer: monkey it, then check', md(D.cards_intro))}${D.cards.map(card).join('')}</section>`;
+  h += `<section class="sec sec--method" id="method" aria-labelledby="method-h">${head('method', 'The monkey method (works for any track)')}${rows(D.method, 'rows--method')}</section>`;
+  h += `<section class="sec sec--plan" id="plan" aria-labelledby="plan-h"><div class="band">${head('plan', 'Practice plan')}${rows(D.plan, 'rows--plan')}</div></section>`;
+  h += `<section class="sec sec--files" id="files" aria-labelledby="files-h">${head('files', 'What’s in the kit')}<ul class="files">${(D.files || []).map((f) => { const s = String(f), i = s.indexOf(': '); return i > 0 ? `<li><p class="files__t">${md(s.slice(0, i))}</p><p>${md(s.slice(i + 2))}</p></li>` : `<li><p>${md(s)}</p></li>`; }).join('')}</ul></section>`;
+  h += `<section class="sec sec--accuracy" id="accuracy" aria-labelledby="accuracy-h">${head('accuracy', 'How sure is this?')}${rows(D.accuracy, 'rows--accuracy', 'ul')}</section>`;
+  $('#sections').innerHTML = h;
+  $('#colophon').innerHTML = `<p>${md(D.footer)}</p><p>Made with <a href="https://github.com/WorldInnovationsDepartment/mavpa">mavpa</a>.</p>`;
+  const toc = [['dna', 'the song’s dna'], ['setup', 'set up your session'], ['map', 'song map'], ...D.harmony.map((hm, i) => [i ? `loop-${i + 1}` : 'loop', keep(md(hm.title))]), ['layers', 'every layer'], ['method', 'the monkey method'], ['plan', 'practice plan'], ['files', 'what’s in the kit'], ['accuracy', 'how sure is this?']];
+  $('#toc').innerHTML = toc.map(([id, label]) => `<li><a href="#${id}">${label}</a>${id === 'layers' ? `<ol class="toc__layers">${D.cards.map((c) => `<li><a href="#l-${esc(c.id)}"><span class="swatch" data-layer="${lay(c.color)}" aria-hidden="true"></span><span>${keep(md(c.title))}</span></a></li>`).join('')}</ol>` : ''}</li>`).join('');
 }
 
-function setupToggles() {
-  document.querySelectorAll('#naming button').forEach(b => b.addEventListener('click', () => {
+let spy = null;
+function setupSpy() {
+  if (!('IntersectionObserver' in window)) return;
+  if (spy) spy.disconnect();
+  const links = new Map([...document.querySelectorAll('#toc a')].map((a) => [a.getAttribute('href').slice(1), a]));
+  spy = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const id = e.target.dataset.spy || e.target.id, a = links.get(id);
+      if (!a && id !== 'top') continue;
+      document.querySelectorAll('#toc a[aria-current]').forEach((x) => x.removeAttribute('aria-current'));
+      if (a) a.setAttribute('aria-current', 'location');
+    }
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  const hero = document.getElementById('top');
+  if (hero) spy.observe(hero);
+  for (const id of links.keys()) {
+    let el = document.getElementById(id);
+    if (!el) continue;
+    if (id === 'layers') { el = el.querySelector('.sec__head'); if (!el) continue; el.dataset.spy = 'layers'; }
+    spy.observe(el);
+  }
+}
+function renderKeepOpen() {
+  const open = [...document.querySelectorAll('#sections details')].map((d) => d.open);
+  render();
+  document.querySelectorAll('#sections details').forEach((d, i) => { if (open[i]) d.open = true; });
+  setupSpy();
+}
+function setupControls() {
+  const press = (sel, b) => document.querySelectorAll(sel).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  const NAMING = '#naming button, .naming-mirror button';
+  document.querySelectorAll(NAMING).forEach((b) => b.addEventListener('click', () => {
     naming = b.dataset.v;
-    document.querySelectorAll('#naming button').forEach(x => x.setAttribute('aria-pressed', x === b));
-    render();
+    document.querySelectorAll(NAMING).forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.v === naming)));
+    renderKeepOpen();
     try { localStorage.setItem('mavpa-naming', naming); } catch (e) {}
   }));
-  document.querySelectorAll('#theme button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#theme button').forEach((b) => b.addEventListener('click', () => {
     const v = b.dataset.v;
     if (v === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', v);
-    document.querySelectorAll('#theme button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    press('#theme button', b);
     try { localStorage.setItem('mavpa-theme', v); } catch (e) {}
   }));
+  const rail = $('#rail'), tog = $('#rail-toggle');
+  const close = () => { rail.removeAttribute('data-open'); tog.setAttribute('aria-expanded', 'false'); };
+  tog.addEventListener('click', () => { const open = !rail.hasAttribute('data-open'); rail.toggleAttribute('data-open', open); tog.setAttribute('aria-expanded', String(open)); });
+  $('#toc').addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && rail.hasAttribute('data-open')) { close(); tog.focus(); } });
   try {
-    const n = localStorage.getItem('mavpa-naming'); if (n && OFF[n] !== undefined) document.querySelector(`#naming button[data-v="${n}"]`).click();
-    const t = localStorage.getItem('mavpa-theme'); if (t) document.querySelector(`#theme button[data-v="${t}"]`).click();
+    const n = localStorage.getItem('mavpa-naming');
+    if (n && OFF[n] !== undefined) document.querySelector(`#naming button[data-v="${n}"]`).click();
+    const t = localStorage.getItem('mavpa-theme');
+    if (t && ['auto', 'light', 'dark'].includes(t)) document.querySelector(`#theme button[data-v="${t}"]`).click();
   } catch (e) {}
 }
-render(); setupToggles();
+render(); setupSpy(); setupControls();
 </script>
 </body>
 </html>

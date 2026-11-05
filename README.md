@@ -56,15 +56,17 @@ Your Song - monkey kit/
     └── loops/loop8_bass.mid …       ← the building blocks
 ```
 
-Drag the folder into **Ableton Live** (Intro or Lite is enough), **FL Studio** or
+Drag the folder into **Ableton Live** (Intro is enough for most kits), **FL Studio** or
 **GarageBand** (free): set the tempo and time signature, drop everything at bar 1, and the
 stems and MIDI line up.
 
 <p align="center">
-  <img src="assets/screenshots/guide-loop.png" alt="The guide: song map, loop table with chords, bass and voicings" width="820">
+  <img src="assets/screenshots/guide-first.png" alt="The guide's first screen: the song in its four stems, the facts, the note-name switch and a contents rail" width="820">
 </p>
 
-The guide covers:
+The guide wears the logo's colours: every part keeps the colour of the stem it lives in
+(drums coral, bass lavender, music mint, vocals cream), in a night mode and a lavender day
+mode. Its fonts are built in, so it works offline. It covers:
 
 1. **The song's DNA:** meter, tempo, scale on the keyboard, the loop, where bar 1 is.
 2. **Session setup** for FL Studio, Ableton Live and GarageBand.
@@ -75,11 +77,11 @@ The guide covers:
 6. **A practice plan** and an honest *"how sure is this?"* section built from automatic checks.
 
 <p align="center">
-  <img src="assets/screenshots/guide-roll.png" alt="Every answer is also a piano roll" width="820">
+  <img src="assets/screenshots/guide-map.png" alt="The song map: one lane per layer, coloured by its stem, with the sections and their start times" width="820">
 </p>
 
 <p align="center">
-  <img src="assets/screenshots/guide-card.png" alt="A layer card: monkey-it steps, then the hidden answer" width="820">
+  <img src="assets/screenshots/guide-card.png" alt="A layer: monkey-it steps first, then the answer, here a piano roll, behind a button" width="820">
 </p>
 
 ## Install
@@ -227,8 +229,12 @@ nothing is uploaded anywhere.
 2. [basic-pitch](https://github.com/spotify/basic-pitch) (Spotify) for polyphonic notes.
 3. [librosa](https://librosa.org) (pYIN, CQT, onsets), [pretty_midi](https://github.com/craffel/pretty-midi)
    and [mido](https://github.com/mido/mido) for audio and MIDI.
-4. The logo was generated with Codex.
-5. Built with Claude Code, one waltz at a time.
+4. The logo is hand-built SVG: a monkey head split into four stems (`assets/mavpa-symbol.svg`, source in `assets/logo-redesign/build3.py`).
+5. The guide was redesigned with the Hallmark design skill (its Ultraviolet theme, rebuilt on the
+   logo's colours). It is set in [Outfit](https://github.com/Outfitio/Outfit-Fonts) and
+   [Onest](https://github.com/googlefonts/onest), both under the SIL Open Font License 1.1
+   (`mavpa/templates/fonts/`).
+6. Built with Claude Code, one waltz at a time.
 
 ## License
 

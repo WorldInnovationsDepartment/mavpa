@@ -11,7 +11,7 @@ SELF="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SELF/../../.." 2>/dev/null && pwd || true)"
 if [ -n "$ROOT" ] && [ -f "$ROOT/pyproject.toml" ] && grep -q '^name = "mavpa"' "$ROOT/pyproject.toml"; then
   SRC="$ROOT"
-  WANT="$(shasum "$ROOT/pyproject.toml" | cut -c1-12) $ROOT $(find "$ROOT/mavpa" -name '*.py' -o -name '*.html' | sort | xargs cat | shasum | cut -c1-12)"
+  WANT="$(shasum "$ROOT/pyproject.toml" | cut -c1-12) $ROOT $(find "$ROOT/mavpa" -type f \( -name '*.py' -o -name '*.html' -o -name '*.json' -o -name '*.woff2' \) | sort | xargs cat | shasum | cut -c1-12)"
 else
   SRC="git+https://github.com/WorldInnovationsDepartment/mavpa"
   WANT="$SRC"

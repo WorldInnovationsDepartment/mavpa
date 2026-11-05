@@ -82,6 +82,9 @@ def test_build_writes_full_kit(tmp_path):
     assert pm.time_signature_changes[0].numerator == 4
     html = (out / "guide.html").read_text()
     assert "Test Song" in html and "/*__DATA__*/" not in html
+    # the guide works offline: its fonts are inlined, nothing is fetched
+    assert "/*__FONTS__*/" not in html and html.count("data:font/woff2;base64,") == 5
+    assert "googleapis" not in html and "<link" not in html
     assert (out / "README.txt").read_text().startswith("TEST SONG")
     assert (out / "midi/loops").exists() and files["loops"]
 

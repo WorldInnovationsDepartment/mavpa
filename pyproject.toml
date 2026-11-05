@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mavpa"
-version = "0.1.0"
+version = "0.2.0"
 description = "Monkey see, monkey do: split any track into its parts, then rebuild it by hand in Ableton, FL Studio or GarageBand."
 readme = "README.md"
 license = "MIT"

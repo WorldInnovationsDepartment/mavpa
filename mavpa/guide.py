@@ -6,6 +6,7 @@ missing is generated from the data. Text uses a tiny markup:
 **bold**, *italic*, `mono`, and {{E4}} / {{E4 G4 B4}} / {{64}} note tokens that follow
 the page's note-naming toggle (scientific C4, FL C5, Ableton C3).
 """
+import base64
 import json
 from importlib import resources
 
@@ -375,10 +376,25 @@ def default_accuracy(verify):
 
 
 # ------------------------------------------------------------------------------------------------ writers
+def fonts_css():
+    """@font-face rules with the guide's fonts inlined as data URIs, so a kit's guide.html works offline.
+    The fonts (Outfit, Onest; SIL OFL 1.1) live in templates/fonts/ with their licences."""
+    root = resources.files("mavpa").joinpath("templates/fonts")
+    meta = json.loads(root.joinpath("fonts.json").read_text(encoding="utf-8"))
+    rules = ["/* Outfit and Onest, SIL Open Font License 1.1, embedded unmodified so the guide works offline */"]
+    for f in meta["faces"]:
+        b64 = base64.b64encode(root.joinpath(f["file"]).read_bytes()).decode("ascii")
+        rules.append(f"@font-face {{ font-family: '{f['family']}'; font-style: normal; font-weight: {f['weight']}; "
+                     f"font-display: swap; src: url(data:font/woff2;base64,{b64}) format('woff2'); "
+                     f"unicode-range: {f['unicode_range']}; }}")
+    return "\n".join(rules)
+
+
 def write_guide(ws, spec, grid, notes, files, path):
     data = guide_data(ws, spec, grid, notes, files)
     tpl = resources.files("mavpa").joinpath("templates/guide.html").read_text(encoding="utf-8")
     html = tpl.replace("/*__DATA__*/null", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
+    html = html.replace("/*__FONTS__*/", fonts_css())
     html = html.replace("__PAGE_TITLE__", _esc(data["page_title"]))
     path.write_text(html, encoding="utf-8")
     return path
